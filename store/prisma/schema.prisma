@@ -1,0 +1,26 @@
+// schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["jsonProtocol"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DB_URL") 
+}
+
+model Product {
+  id            String     @default(cuid()) @id
+  name          String
+  description   String?
+  published     Boolean @default(false)
+  category      Category? @relation(fields: [categoryId]: references: [id])
+  categoryId    String
+}
+
+model Category {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  product Product[]
+}
