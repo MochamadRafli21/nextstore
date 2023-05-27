@@ -4,9 +4,9 @@ import React from 'react'
 export default function Navbar() {
   return (
     <>
-    <div className="navbar bg-primary rounded">
+    <div className="navbar bg-accent rounded">
     <div className="flex-1">
-    <a className="btn btn-ghost normal-case text-xl">STORE</a>
+    <p className="btn btn-ghost normal-case text-primary font-bold text-2xl">STORE</p>
     </div>
     <div className="flex-none gap-2">
     <div className="form-control">

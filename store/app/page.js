@@ -56,6 +56,10 @@ let categoryList = [
   }
 ]
 
+let productList = [
+
+]
+
 export default function Home() {
   categoryList = categoryList.slice(0,5)
   return (
@@ -64,8 +68,8 @@ export default function Home() {
       <Carousel
         banners={...dummybanners}
       />
-    <div className="bg-base-100 flex flex-col p-4 rounded md:w-3/4 items-start justify-between">
-    <h1 className="text-info-content text-xl md:text-3xl font-bold">
+    <div className="bg-primary flex flex-col p-4 rounded md:w-3/4 items-start justify-between">
+    <h1 className="text-primary-content text-xl md:text-3xl font-bold">
     Kategori Favorit
     </h1>
     <div className="flex flex-wrap w-full mt-4">
