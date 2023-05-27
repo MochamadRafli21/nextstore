@@ -1,8 +1,10 @@
 import React from 'react'
+import Link from 'next/link'
 
 export default function CategoryCard(props) {
   return (
     <>
+    <Link href={"/category/"+props.id}>
     <div className='card p-3 m-2 flex-col items-center bg-accent shadow-xl'>
     {props.image ?
       <div className='avatar'>
@@ -23,6 +25,8 @@ export default function CategoryCard(props) {
     </span>
     </div>
     </div>
+
+    </Link>
     </>
   )
 }

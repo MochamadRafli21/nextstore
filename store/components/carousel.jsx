@@ -30,7 +30,6 @@ function Slide (props){
 
 export default function Carousel(props) {
   const listImage = props.banners
-  console.log(listImage.length)
   return (
     <>
     <div className='mx-2 my-4 carousel w-full max-w-7xl'>

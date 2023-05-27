@@ -4,7 +4,7 @@ import React from 'react'
 export default function Navbar() {
   return (
     <>
-    <div className="navbar bg-accent rounded">
+    <div className="navbar bg-accent rounded-xl">
     <div className="flex-1">
     <p className="btn btn-ghost normal-case text-primary font-bold text-2xl">STORE</p>
     </div>
@@ -22,7 +22,6 @@ export default function Navbar() {
     <li>
     <Link href="#" className="justify-between">
     About
-    <span className="badge">New</span>
     </Link>
     </li>
     <li><Link href="#">Catalog</Link></li>
