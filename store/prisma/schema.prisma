@@ -11,12 +11,12 @@ datasource db {
 }
 
 model Product {
-  id            String     @default(cuid()) @id
+  id            Int     @default(autoincrement()) @id
   name          String
   description   String?
   published     Boolean @default(false)
-  category      Category? @relation(fields: [categoryId]: references: [id])
-  categoryId    String
+  category      Category? @relation(fields: [categoryId], references: [id])
+  categoryId    Int
 }
 
 model Category {
