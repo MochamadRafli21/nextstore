@@ -7,14 +7,14 @@ export default function ProductCard(props) {
   return (
     <>
     <Link href={"/product/"+props.id} >
-    <div className="card m-4 w-full md:w-48 border-primary bg-base-100 shadow-xl">
-      <figure><img src={props.image} alt={props.name} /></figure>
-      <div className="card-body">
-      <h2 className="card-title">
+    <div className="card object-scale-down w-[180px] md:w-[230px] h-[360px] m-2 card-compact md:my-4 border-primary bg-base-100 shadow-xl">
+      <figure><img className='w-100 h-100 max-h-52 object-fill rounded-xl' src={props.image} alt={props.name} /></figure>
+      <div className="card-body h-[130px]">
+      <h2 className="text-sm card-title">
         {props.name}
       </h2>
-      <h1 className='font-bold text-primary'>{price}</h1>
-      <p className='line-clamp-2'>{props.description}</p>
+      <h6 className='font-bold text-primary'>{price}</h6>
+      <p className='text-sm line-clamp-2'>{props.description}</p>
         {
           props.isHighlight?
           <div className="badge badge-secondary">Favorite</div>:
