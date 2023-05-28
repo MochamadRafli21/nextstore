@@ -13,7 +13,8 @@ export async function POST(request) {
   }
   const data = await prisma.category.create({
     data:{
-      name: res.name 
+      name: res.name,
+      image: res.image
     }
   }) 
   return NextResponse.json({ data });

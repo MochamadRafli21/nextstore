@@ -12,15 +12,17 @@ datasource db {
 
 model Product {
   id            Int     @default(autoincrement()) @id
-  name          String
+  name          String  @unique
   description   String?
   published     Boolean @default(false)
+  image         String?
   category      Category? @relation(fields: [categoryId], references: [id])
-  categoryId    Int
+  categoryId    Int?
 }
 
 model Category {
   id    Int    @id @default(autoincrement())
   name  String @unique
+  image String?
   product Product[]
 }

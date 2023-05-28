@@ -2,7 +2,7 @@
 import prisma from "@/prisma/prismaClient";
 import { NextResponse } from 'next/server';
 
-export async function DELETE({params}) {
+export async function DELETE(_,{params}) {
   const id = parseInt(params.id)
   const data = await prisma.product.delete({
     where: {
@@ -12,12 +12,16 @@ export async function DELETE({params}) {
   return NextResponse.json({ data });
 }
 
-export async function GET({params}) {
+export async function GET(_,{params}) {
+  console.log(params)
   const id = parseInt(params.id)
   const data = await prisma.product.findFirst({
     where: {
       id
-    } 
+    },
+    include:{
+      category:true
+    }
   }) 
   return NextResponse.json({ data });
 }
