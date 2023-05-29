@@ -4,6 +4,7 @@ import { getProduct } from '@/app/store/product'
 
 export default async function ProductList() {
   const resP = await getProduct()
+  console.log(resP)
   const productList = resP ? resP.data : [];
   return (
     <>

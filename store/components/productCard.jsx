@@ -3,7 +3,7 @@ import React from 'react'
 import Link from 'next/link'
 
 export default function ProductCard(props) {
-  const price = formatter.format(props.price).replace("IDR", "Rp.")
+  const price = props.price?formatter.format(props.price).replace("IDR", "Rp."):"FREE"
   return (
     <>
     <Link href={"/product/"+props.id} >

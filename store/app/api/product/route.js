@@ -5,6 +5,7 @@ export async function GET() {
   const product = await prisma.product.findMany({
     include:{category:true}
   })
+  console.log(product)
   return NextResponse.json({ data: product });
 }
 
@@ -20,10 +21,11 @@ export async function POST(request) {
       description: res.description,
       categoryId: res.categoryId,
       published: res.publish,
+      price: res.price,
     },
     include:{
       category:true
     }
-  }) 
+  })
   return NextResponse.json({ data });
 }

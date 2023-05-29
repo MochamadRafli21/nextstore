@@ -13,6 +13,7 @@ export async function createProduct(){
       description: res.description,
       categoryId: res.categoryId,
       published: res.publish,
+      price: res.price
     },
     include:{
       category:true

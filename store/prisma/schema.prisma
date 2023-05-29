@@ -16,6 +16,7 @@ model Product {
   description   String?
   published     Boolean @default(false)
   image         String?
+  price         Int @default(0)
   category      Category? @relation(fields: [categoryId], references: [id])
   categoryId    Int?
 }
