@@ -81,6 +81,11 @@ export default function Home() {
     />
     </div>
     </div>
+    <div className="bg-accent mt-6 flex flex-col p-4 rounded-xl w-full md:w-3/4 items-start justify-between">
+    <h1 className="text-accent-content text-xl md:text-3xl font-bold">
+    Kategori Favorit
+    </h1>
+    </div>
     <ProductList/>
     <footer className="footer items-center p-4 bg-neutral text-neutral-content">
     <div className="items-center grid-flow-col">
