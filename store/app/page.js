@@ -1,4 +1,3 @@
-import Navbar from "@/components/navbar"
 import Carousel from "@/components/carousel"
 import CategoryCard from "@/components/categoryCard"
 import ProductList from "@/components/productList"
@@ -60,7 +59,6 @@ export default function Home() {
   categoryList = categoryList.slice(0,5)
   return (
     <main className="flex flex-col items-center justify-between p-2">
-      <Navbar/>
       <Carousel
         banners={...dummybanners}
       />
