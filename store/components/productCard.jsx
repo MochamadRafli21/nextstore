@@ -8,7 +8,11 @@ export default function ProductCard(props) {
     <>
     <Link href={"/product/"+props.id} >
     <div className="card object-scale-down w-[180px] md:w-[230px] h-[360px] m-2 card-compact md:my-4 border-primary bg-base-100 shadow-xl">
-      <figure><img className='w-100 h-100 max-h-52 object-fill rounded-xl' src={props.image} alt={props.name} /></figure>
+      {
+        props.image ? 
+        <figure><img className='w-100 h-100 min-h-52 max-h-52 object-fill rounded-xl' src={props.image} alt={props.name} /></figure>
+        :<></>
+      }
       <div className="card-body h-[130px]">
       <h2 className="text-sm card-title">
         {props.name}

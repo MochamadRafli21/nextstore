@@ -11,8 +11,8 @@ export default function MiniCategoryList(props) {
   const selectedCategory = query.get("category")
   return (
     <>
-    <div className='w-full flex items-center md:w-1/2'>
-    <div className='w-full overflow-x-scroll flex flex-nowrap my-4'>
+    <div className='flex justify-center-center'>
+    <div className='overflow-x-scroll flex justify-center flex-nowrap my-4'>
     {categories.length? categories.map((category) => 
       {
         if(selectedCategory && selectedCategory.toLowerCase() == category.name.toLowerCase()){

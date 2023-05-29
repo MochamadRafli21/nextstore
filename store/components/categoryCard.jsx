@@ -5,7 +5,7 @@ export default function CategoryCard(props) {
   return (
     <>
     <Link href={"/category/"+props.id}>
-    <div className='card p-3 m-2 flex-col items-center bg-accent shadow-xl'>
+    <div className='card min-w-[80px] p-3 m-2 flex-col items-center bg-accent shadow-xl'>
     {props.image ?
       <div className='avatar'>
       <div className='w-8 md:w-16 bg-base-100 rounded'>

@@ -6,7 +6,9 @@ export default function Navbar() {
     <>
     <div className="navbar bg-accent">
     <div className="md:flex-1">
+    <Link href={'/'}>
     <p className="btn btn-ghost normal-case text-primary font-bold text-2xl">STORE</p>
+    </Link>
     </div>
     <div className="flex-none gap-2">
     <div className="form-control">
@@ -19,13 +21,7 @@ export default function Navbar() {
     </div>
     </label>
     <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-primary-content rounded-box w-52">
-    <li>
-    <Link href="#" className="justify-between">
-    About
-    </Link>
-    </li>
-    <li><Link href="#">Catalog</Link></li>
-    <li><Link href="#">Something..</Link></li>
+    <li><Link href="/product">Catalog</Link></li>
     </ul>
     </div>
     </div>
