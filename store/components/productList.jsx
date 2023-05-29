@@ -39,7 +39,7 @@ const productList = [
 export default function ProductList() {
   return (
     <>
-    <div className='bg-base-100 justify-center w-full md:w-3/4 m-4 rounded-xl text-primary-content'>
+    <div className='bg-base-100 justify-around w-full md:w-3/4 m-4 rounded-xl text-primary-content'>
     <div className='pt-4 w-full flex flex-wrap justify-evenly md:justify-center'>
     {productList.length ? productList.map((product) => 
       <ProductCard

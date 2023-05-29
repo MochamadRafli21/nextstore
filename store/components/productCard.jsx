@@ -18,7 +18,7 @@ export default function ProductCard(props) {
         {
           props.isHighlight?
           <div className="badge badge-secondary">Favorite</div>:
-          <div></div>
+          <></>
         }
       </div>
     </div>
