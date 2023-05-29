@@ -8,7 +8,7 @@ export default async function Home() {
   const resC = await getCategory()
   const resB = await getBanner()
   const categoryList = resC ? resC.data.slice(0,5) : []; 
-  const bannerList = resB ? resB.data : [];
+  const bannerList = resB.data ? resB.data : [];
   return (
     <>
     <main className="flex flex-col items-center justify-between p-2">

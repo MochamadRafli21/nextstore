@@ -14,6 +14,10 @@ export async function POST(request) {
   if(!res.name){
     return new Response("Product Name Cant be empty!", {status:400})
   }
+  const exist = await prisma.product.findFirst({where:{name:res.name}})
+  if(exist){
+    return new Response("Product Name is already exist", {status: 400}) 
+  }
   const data = await prisma.product.create({
     data:{
       name: res.name,

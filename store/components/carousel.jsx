@@ -4,7 +4,8 @@ function Slide (props){
   const nextItemId = `#slide${props.currentId+2}`
   const beforeItemId = `#slide${props.currentId}`
   const currentItemId = `slide${props.currentId+1}` 
-  const lastItem = `#slide${props.lastItem}` 
+  const lastItem = `#slide${props.lastItem}`
+  console.log(props.url)
   if(props.url){
     return (
       <>
@@ -36,7 +37,7 @@ export default function Carousel(props) {
     { listImage.length?
       listImage.map((item, index) => 
         <Slide 
-        url={item.url}
+        url={item.image}
         lastItem={listImage.length}
         currentId={index} 
         isNextItem={index+1 != listImage.length} 

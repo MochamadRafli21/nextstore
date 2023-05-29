@@ -1,7 +1,6 @@
 import React from 'react'
 
 export default function ProductDetail(props) {
-  console.log(props.image)
   return (
     <>
     <div className='m-6 bg-base-100 p-4 rounded-3xl w-3/4 hidden md:flex flex-row justify-start items-start'>
