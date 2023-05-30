@@ -1,6 +1,7 @@
 import Carousel from "@/components/carousel"
 import CategoryCard from "@/components/categoryCard"
 import ProductList from "@/components/productList"
+import Footer from '@/components/footer'
 import {getCategory } from "./store/category"
 import { getBanner } from "./store"
 
@@ -40,6 +41,7 @@ export default async function Home() {
     </h1>
     </div>
     <ProductList/>
+    <Footer/> 
     </main>
     </>
   )
