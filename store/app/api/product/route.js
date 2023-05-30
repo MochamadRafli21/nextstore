@@ -1,10 +1,39 @@
 import prisma from "@/prisma/prismaClient";
 import { NextResponse } from 'next/server';
 
-export async function GET() {
-  const product = await prisma.product.findMany({
-    include:{category:true}
-  })
+export async function GET(request) {
+  const {searchParams} = new URL(request.url)
+  const catName = searchParams.get('category')
+  const pName = searchParams.get('q')
+  let payload = {}
+  if(catName){
+    payload.where = {
+      category: {
+        name: catName
+      }
+    }
+  }
+
+  if(pName){
+    payload.where = {
+      ...payload.where,
+      name:{
+        contains: pName,
+        mode: 'insensitive'
+      }
+    }
+  }
+
+  payload = {
+    ...payload,
+    include:{
+      category:true
+    }
+  }
+
+  const product = await prisma.product.findMany(
+    payload
+  )
   return NextResponse.json({ data: product });
 }
 

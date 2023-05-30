@@ -16,13 +16,13 @@ export default function MiniCategoryList(props) {
     {categories.length? categories.map((category) => 
       {
         if(selectedCategory && selectedCategory.toLowerCase() == category.name.toLowerCase()){
-          return <div className='badge min-w-fit p-3 m-2 text-ellipsis'>
+          return <div className='badge min-w-fit m-2 text-ellipsis'>
             <Link href={`/product?category=${category.name}`}>
             <p>{category.name}</p>
             </Link> 
           </div>
         }
-          return <div className='badge badge-accent badge-outline min-w-fit p-3 m-2 text-ellipsis'>
+          return <div className='badge badge-accent badge-outline min-w-fit m-2 text-ellipsis'>
             <Link href={`/product?category=${category.name}`}>
             <p>{category.name}</p>
             </Link> 

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import ProductSearch from './productSearch'
 
 export default function Navbar() {
   return (
@@ -11,9 +12,7 @@ export default function Navbar() {
     </Link>
     </div>
     <div className="flex-none gap-2">
-    <div className="form-control">
-    <input type="text" placeholder="Search" className="input input-bordered" />
-    </div>
+    <ProductSearch/>
     <div className="dropdown dropdown-end">
     <label tabIndex={0} className="btn btn-ghost btn-square">
     <div className="w-10">

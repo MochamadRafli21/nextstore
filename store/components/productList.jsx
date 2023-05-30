@@ -1,9 +1,9 @@
 import React from 'react'
 import ProductCard from './productCard'
-import { getProduct } from '@/app/store/product'
+import { getProductServer } from '@/app/store/product'
 
 export default async function ProductList() {
-  const resP = await getProduct()
+  const resP = await getProductServer()
   const productList = resP ? resP.data : [];
   return (
     <>
