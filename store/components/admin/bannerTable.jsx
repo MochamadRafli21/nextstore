@@ -1,5 +1,5 @@
 import React from 'react'
-import BannerPost from '../banner/bannerPost'
+import BannerDelete from '../banner/BannerDelete'
 
 export default function BannerTable(props) {
   const banner = props.banners
@@ -22,7 +22,7 @@ export default function BannerTable(props) {
           <div className="avatar">
           <img className='w-max-sm object-cover' src={ban.image} />
           </div>
-            <BannerPost id={ban.id}/>
+            <BannerDelete id={ban.id}/>
           </div>
           </td>
         </tr>

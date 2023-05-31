@@ -1,4 +1,5 @@
 import React from 'react'
+import CategoryDelete from '../category/CategoryDelete'
 
 export default function CategoryTable(props) {
   const categories = props.categories
@@ -33,9 +34,7 @@ export default function CategoryTable(props) {
           </td>
           <td className='text-error'>
             <div>
-              <button className='btn btn-error text-error-content'>
-                Hapus
-              </button>
+              <CategoryDelete id={category.id}/>
             </div>
           </td>
         </tr>

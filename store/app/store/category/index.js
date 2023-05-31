@@ -32,12 +32,12 @@ export async function postCategory(payload) {
   }
 }
 
-export async function deleteBanner(id) {
+export async function deleteCategory(id) {
   if(!id){
     throw new Error("Id is missing")
   }
   try{
-    const res = await fetch(`/api/banner/${id}`,
+    const res = await fetch(`/api/category/${id}`,
       {
         method: "DELETE"
       }
