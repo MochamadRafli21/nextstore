@@ -14,8 +14,9 @@ export default function ProductSearch() {
           "category": ""
         }
         const resP = await getProduct(query)
+        const data = resP.data ? resP.data : [];
 
-        setProductList(resP ? resP.data: [])
+        setProductList( data.slice(0,3) )
       }
       get()
     }
