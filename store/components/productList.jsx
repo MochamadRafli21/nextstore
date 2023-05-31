@@ -8,7 +8,7 @@ export default async function ProductList() {
   return (
     <>
     <div className='bg-base-100 justify-around w-full md:w-3/4 m-4 rounded-xl text-primary-content'>
-    <div className='pt-4 w-full flex flex-wrap justify-evenly md:justify-center'>
+    <div className='pt-4 w-full grid grid-cols-2 md:grid-cols-4'>
     {productList.length ? productList.map((product) => 
       <ProductCard
       id = {product.id}
