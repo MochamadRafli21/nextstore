@@ -1,5 +1,5 @@
 import React from 'react';
-import BannerForm from '@/components/banner/bannerForm';
+import CategoryForm from '@/components/category/CategoryForm';
 
 export default async function AddBanner() {
   
@@ -9,9 +9,9 @@ export default async function AddBanner() {
     <div className="m-4 w-full md:w-3/4 card card-bordered bg-base-100 rounded-xl">
       <div className="card-body" >
         <h1 className="text-accent card-title font-bold rounded-xl ">
-          Banner    
+          Kategori    
         </h1>
-        <BannerForm/>
+        <CategoryForm/>
       </div>
     </div>
 
