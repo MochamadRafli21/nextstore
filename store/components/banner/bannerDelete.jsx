@@ -12,7 +12,7 @@ export default function BannerPost(props) {
       throw new Error("Tidak dapat menghapus gambar")
     }
     router.push('/admin/#banner')
-
+    router.refresh()
   }
   return (
       <>

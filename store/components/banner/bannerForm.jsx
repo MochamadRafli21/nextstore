@@ -18,6 +18,7 @@ export default function BannerForm() {
           throw new Error("Failed to add banner")
         }
         router.push('/admin')
+        router.refresh()
       } catch (error) {
         console.log(error)  
       }

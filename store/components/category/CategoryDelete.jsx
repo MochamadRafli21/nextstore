@@ -12,7 +12,7 @@ export default function CategoryDelete(props) {
       throw new Error("Tidak dapat menghapus kategori")
     }
     router.push('/admin/#category')
-
+    router.refresh()
   }
   return (
       <>
