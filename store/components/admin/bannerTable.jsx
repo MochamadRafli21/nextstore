@@ -1,10 +1,11 @@
 import React from 'react'
+import BannerPost from '../banner/bannerPost'
 
 export default function BannerTable(props) {
   const banner = props.banners
   return (
     <>
-    <div className="mt-2 overflow-x-auto w-full">
+    <div id="banner" className="mt-2 overflow-x-auto w-full">
     <table className="table text-base-content w-full">
     <thead className='bg-accent'>
     <tr>
@@ -21,12 +22,9 @@ export default function BannerTable(props) {
           <div className="avatar">
           <img className='w-max-sm object-cover' src={ban.image} />
           </div>
-        <button className='w-full mt-2 btn btn-error text-error-content'>
-        Hapus
-        </button>
+            <BannerPost id={ban.id}/>
           </div>
           </td>
-
         </tr>
       )
         :

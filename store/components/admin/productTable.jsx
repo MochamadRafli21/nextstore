@@ -3,19 +3,19 @@ import formatter from '@/utils/formater'
 
 export default function ProductTable(props) {
   const products = props.products
-  console.log(products)
   return (
     <>
-    <div className="mt-2 overflow-x-auto w-full">
-    <table className="table-auto table bg-base-100 col-5 gap-2 rounded-xl">
+    <div className="my-2 flex justify-center overflow-x-auto">
+    <table className="table bg-base-100">
     <thead>
     <tr>
     <th>Image</th>
     <th>Name</th>
     <th></th>
+    <th></th>
     </tr>
     </thead>
-    <tbody className='w-full text-base-content'>
+    <tbody className='text-base-content'>
 
     {products ? 
       products.map((product)=> 
@@ -47,8 +47,8 @@ export default function ProductTable(props) {
         </tr>
       )
         :
-    <div className='w-full flex justify-center items-center p-2'>
-      <h1>Kategori Kosong</h1>
+    <div className='flex justify-center items-center p-2'>
+      <h1>Product Kosong</h1>
     </div>
     }
     </tbody>
