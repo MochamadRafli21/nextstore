@@ -1,6 +1,7 @@
 import Carousel from "@/components/carousel"
 import CategoryCard from "@/components/categoryCard"
 import ProductList from "@/components/productList"
+import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 import {getCategory } from "./store/category"
 import { getBanner } from "./store"
@@ -13,6 +14,7 @@ export default async function Home() {
   return (
     <>
     <main className="flex flex-col items-center justify-between p-2">
+      <Navbar/>
       <Carousel
         banners={...bannerList}
       />
