@@ -1,4 +1,5 @@
 import React from 'react'
+import formatter from '@/utils/formater'
 
 export default function ProductTable(props) {
   const products = props.products
@@ -29,11 +30,11 @@ export default function ProductTable(props) {
           <td>
             {product.name}
             <br/>
-            <span className='badge badge-info badge-sm text-info-content'>
-              {product.price}
+            <span className='badge badge-secondary badge-sm text-secondary-content'>
+              {product.price?"Harga: "+formatter.format(product.price).replace("IDR", "Rp."):"FREE"}
             </span>
             {product.category?
-              <span className='badge badge-success badge-sm text-success-content'>
+              <span className='badge badge-primary badge-sm text-primary-content'>
               {product.category.name}
               </span>:<></>
             }
