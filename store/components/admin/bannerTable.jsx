@@ -17,13 +17,11 @@ export default function BannerTable(props) {
       banner.map((ban)=> 
         <tr>
           <td>
-          <div className="flex items-center justify-center gap-10 space-x-3">
+          <div className="flex flex-col items-center justify-center space-x-3">
           <div className="avatar">
-          <div className="w-36">
-          <img src={ban.image} />
+          <img className='w-max-sm object-cover' src={ban.image} />
           </div>
-          </div>
-        <button className='btn btn-error text-error-content'>
+        <button className='w-full mt-2 btn btn-error text-error-content'>
         Hapus
         </button>
           </div>

@@ -32,7 +32,11 @@ export default function CategoryTable(props) {
             {category.name}
           </td>
           <td className='text-error'>
-            Hapus
+            <div>
+              <button className='btn btn-error text-error-content'>
+                Hapus
+              </button>
+            </div>
           </td>
         </tr>
       )

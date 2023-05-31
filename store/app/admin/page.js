@@ -63,7 +63,7 @@ export default async function Admin() {
     <h1>
     Daftar Produk
     </h1>
-    <Link href="/admin/banner/add">
+    <Link href="/admin/product/add">
     <button className="btn btn-accent btn-sm btn-active text-accent-content">
     + Produk Baru
     </button>
