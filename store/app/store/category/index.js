@@ -1,6 +1,10 @@
 export async function getCategory() {
   try{
-    const res = await fetch(`${process.env.HOST}api/category`);
+    const res = await fetch(`${process.env.HOST}api/category`,
+      {
+        cache: 'no-store',
+      }
+    );
     if (!res.ok) {
     throw new Error('Failed to fetch data');
     }
@@ -17,6 +21,25 @@ export async function postCategory(payload) {
       {
         method:"POST",
         body: JSON.stringify(payload)
+      }
+    );
+    if (!res.ok) {
+      throw new Error('Failed to fetch data');
+    }
+    return res;
+  }catch(error){
+    console.log(error)
+  }
+}
+
+export async function deleteBanner(id) {
+  if(!id){
+    throw new Error("Id is missing")
+  }
+  try{
+    const res = await fetch(`/api/banner/${id}`,
+      {
+        method: "DELETE"
       }
     );
     if (!res.ok) {

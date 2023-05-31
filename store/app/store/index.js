@@ -3,9 +3,6 @@ export async function getBanner() {
   try{
     const res = await fetch(`${process.env.HOST}api/banner`, {
       cache: 'no-store',
-      next:{
-        revalidate: 5
-      }
     });
     if (!res.ok) {
       throw new Error('Failed to fetch data');
