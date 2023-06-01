@@ -1,3 +1,4 @@
+import formatter from '@/utils/formater'
 import React from 'react'
 
 export default function ProductDetail(props) {
@@ -20,7 +21,7 @@ export default function ProductDetail(props) {
     <div className='card-title px-4 text-base-content m'>
     <h1>{props.name}</h1> 
     <p className='badge'>
-    {props.price ? props.price: "FREE" }
+    {props.price ?formatter.format(props.price).replace("IDR", "Rp."): "FREE" }
     </p>
     </div>
     <div className="text-gray-500 px-4 mt-3">
