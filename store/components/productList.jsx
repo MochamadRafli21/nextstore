@@ -2,8 +2,10 @@ import React from 'react'
 import ProductCard from './productCard'
 import { getProductServer } from '@/app/store/product'
 
-export default async function ProductList() {
-  const resP = await getProductServer()
+export default async function ProductList(props) {
+  const name = props ? props.name : '';
+  const category = props ? props.categoryName :"";
+  const resP = await getProductServer({q:name, category:category})
   const productList = resP ? resP.data : [];
   return (
     <>

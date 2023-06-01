@@ -6,7 +6,7 @@ import ProductDetail from "@/components/productDetail"
 
 export default async function Product({params: {id}}) {
   const resPd = await getProductDetail(parseInt(id))
-  if(!resPd.data){
+  if(!resPd){
     throw notFound()
   }
   const product = resPd.data

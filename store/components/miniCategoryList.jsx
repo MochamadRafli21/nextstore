@@ -1,14 +1,11 @@
-"use client"
 import React from 'react'
 import Link from 'next/link'
-import { useSearchParams } from 'next/navigation';
 
 
 export default function MiniCategoryList(props) {
-  const query = useSearchParams();
-
-  const categories = props.categories
-  const selectedCategory = query.get("category")
+  console.log(props)
+  const categories = props ? props.categories: []
+  const selectedCategory = props ? props.selectedCategory : ''
   return (
     <>
     <div className='flex justify-center-center'>
@@ -17,13 +14,13 @@ export default function MiniCategoryList(props) {
       {
         if(selectedCategory && selectedCategory.toLowerCase() == category.name.toLowerCase()){
           return <div className='badge min-w-fit m-2 text-ellipsis'>
-            <Link href={`/product?category=${category.name}`}>
+            <Link href={`/product/search/-/${category.name}`}>
             <p>{category.name}</p>
             </Link> 
           </div>
         }
           return <div className='badge badge-accent badge-outline min-w-fit m-2 text-ellipsis'>
-            <Link href={`/product?category=${category.name}`}>
+            <Link href={`/product/search/-/${category.name}`}>
             <p>{category.name}</p>
             </Link> 
           </div>

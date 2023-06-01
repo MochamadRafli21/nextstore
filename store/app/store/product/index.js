@@ -23,6 +23,7 @@ export async function getProduct(query) {
 
 export async function getProductServer(query) {
   let url = `${process.env.HOST}api/product`
+  console.log(query)
   if(query){
     const {q , category}=query
     if(q){
