@@ -7,10 +7,10 @@ export default function ProductCard(props) {
   return (
     <>
     <Link href={"/product/"+props.id} >
-    <div className="card w-[180px] md:w-[230px] h-[360px] m-2 card-compact md:my-4 border-primary bg-base-100 shadow-xl">
+    <div className="card h-[360px] card-compact md:my-4 border-primary bg-base-100 shadow-xl">
       {
         props.image ? 
-        <figure><img className='h-[200px] min-h-52 max-h-52 object-cover rounded-xl' src={props.image} alt={props.name} /></figure>
+        <figure><img className='w-full h-[200px] min-h-52 max-h-52 object-contain rounded-xl' src={props.image} alt={props.name} /></figure>
         :<></>
       }
       <div className="card-body h-[130px]">

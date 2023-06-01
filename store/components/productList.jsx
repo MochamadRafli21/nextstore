@@ -9,8 +9,8 @@ export default async function ProductList(props) {
   const productList = resP ? resP.data : [];
   return (
     <>
-    <div className='bg-base-100 justify-around w-full md:w-3/4 m-4 rounded-xl text-primary-content'>
-    <div className='pt-4 w-full grid grid-cols-2 md:grid-cols-4'>
+    <div className='bg-base-100 w-full md:w-3/4 m-4 rounded-xl text-primary-content'>
+    <div className='pt-2 w-full p-4 grid gap-4 grid-cols-2 md:grid-cols-3'>
     {productList.length ? productList.map((product) => 
       <ProductCard
       id = {product.id}
@@ -20,7 +20,9 @@ export default async function ProductList(props) {
       isHighlight = {product.isHighlight}
       description = {product.description}
       />  
-    ):<p>Produk tidak ditemukan</p>}
+    ):
+      <p>Produk tidak ditemukan</p>
+    }
     </div>   
     </div>
     </>
