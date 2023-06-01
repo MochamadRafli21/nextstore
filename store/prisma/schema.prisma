@@ -41,6 +41,8 @@ model Order {
   address String
   phone String
   notes String?
+  product_name String
+  price Int
   product Product @relation(fields:[productId], references:[id])
   productId Int
 }
