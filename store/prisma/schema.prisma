@@ -19,6 +19,7 @@ model Product {
   price         Int @default(0)
   category      Category? @relation(fields: [categoryId], references: [id])
   categoryId    Int?
+  order Order[]
 }
 
 model Category {
@@ -31,4 +32,15 @@ model Category {
 model Banner {
   id    Int @id @default(autoincrement())
   image String
+}
+
+model Order {
+  id Int @id @default(autoincrement())
+  uuid String
+  name String
+  address String
+  phone String
+  notes String?
+  product Product @relation(fields:[productId], references:[id])
+  productId Int
 }
