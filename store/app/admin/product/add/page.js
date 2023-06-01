@@ -1,7 +1,7 @@
 import React from 'react';
-import CategoryForm from '@/components/category/CategoryForm';
+import ProductForm from '@/components/product/ProductForm';
 
-export default async function AddCategory() {
+export default async function AddProduct() {
   
   return (
     <>
@@ -9,12 +9,11 @@ export default async function AddCategory() {
     <div className="m-4 w-full md:w-3/4 card card-bordered bg-base-100 rounded-xl">
       <div className="card-body" >
         <h1 className="text-accent card-title font-bold rounded-xl ">
-          Kategori    
+          Produk    
         </h1>
-        <CategoryForm/>
+        <ProductForm/>
       </div>
     </div>
-
     </main>
     </>
   )

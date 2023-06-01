@@ -53,7 +53,7 @@ export async function POST(request) {
       description: res.description,
       categoryId: res.categoryId,
       published: res.publish,
-      price: res.price,
+      price: parseInt(res.price),
     },
     include:{
       category:true
