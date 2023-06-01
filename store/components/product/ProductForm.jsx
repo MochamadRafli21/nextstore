@@ -1,11 +1,13 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation';
 import { postProduct } from '@/app/store/product';
-
 import formatter from '@/utils/formater';
+import SingleSelect from '../select/singleSelect';
+
 export default function CategoryForm() {
   const router = useRouter()
+  const [categories, setCategories] = useState([])
   const [payload, setPayload] = useState({})
   async function submitProduct(e){
     e.preventDefault()
@@ -27,7 +29,26 @@ export default function CategoryForm() {
       }
     }
   }
+  const fetchCategory = async ()=>{
+    const res = await fetch('/api/category')
+    if(!res.ok){
+      throw new Error("failed to fetch category")
+    }
+    const data = await res.json()
+    setCategories(data?data.data:[])
+  }
 
+  useEffect(()=>{
+    fetchCategory()
+    },[]
+  )
+
+  const updateCategory= (value)=>{
+    setPayload({
+      ...payload,
+      categoryId:parseInt(value)
+    })
+  }
   return (
     <form onSubmit={submitProduct}>
     <div className="gap-2 mt-2 items-center text-base-content">
@@ -84,16 +105,38 @@ export default function CategoryForm() {
       min={0}
       placeholder="100,000.00"
       onChange={(e)=>{
-          let aTPrice = e.target.value.replace(/[\D\s\._\-]+/g, "")
+          let aTPrice = e.target.value.replace(/[\D\s\._\-]+/g ,"")
           aTPrice = aTPrice?parseInt(aTPrice):0
           setPayload({
           ...payload,
-            price: aTPrice?formatter.format( aTPrice ):''
+            price: aTPrice?aTPrice:''
+          })
+        }
+      }
+      onBlur={()=>
+        setPayload({
+          ...payload,
+            price:formatter.format(payload.price),
+        })
+      }
+      onFocus={
+        ()=>{
+          setPayload({
+            ...payload,
+            price: payload.price? payload.price.replace(/[\D\s\._\-]+/g, ''):0
           })
         }
       }
       value={payload.price ? payload.price : null}
     />
+
+    <SingleSelect
+      title="Kategori"
+      options={categories?categories:[]}
+      selected={payload.category}
+      setSelected={updateCategory}
+
+    />    
 
     <label className="label" for="url">
     <span className="label-text">
