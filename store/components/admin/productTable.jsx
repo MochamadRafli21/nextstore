@@ -1,11 +1,12 @@
 import React from 'react'
 import formatter from '@/utils/formater'
+import ProductDelete from '../product/ProductDelete'
 
 export default function ProductTable(props) {
   const products = props.products
   return (
     <>
-    <div className="my-2 flex justify-center overflow-x-auto">
+    <div id='product' className="my-2 flex justify-center overflow-x-auto">
     <table className="table bg-base-100">
     <thead>
     <tr>
@@ -40,9 +41,7 @@ export default function ProductTable(props) {
             }
           </td>
           <td>
-            <button className='btn btn-error text-error-content'>
-              Hapus
-            </button>
+            <ProductDelete id={product.id} />
           </td>
         </tr>
       )
