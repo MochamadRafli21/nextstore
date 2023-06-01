@@ -3,9 +3,8 @@ import ProductList from "@/components/productList"
 import { getCategory } from "../../../../store/category/"
 
 export default async function Product({params}) {
-  console.log(params)
-  const categoryName = params ? params.productCategory : ''
-  const productName = params ? params.productName : ''
+  const categoryName = params ? decodeURI(params.productCategory) : ''
+  const productName = params ? decodeURI(params.productName) : ''
   const resC = await getCategory()
   const categoryList = resC.data ? resC.data.slice(0,5) : []
   return (
@@ -15,6 +14,7 @@ export default async function Product({params}) {
     Daftar Product
     </h1>
     <MiniCategoryList
+    product={productName}
     categories={categoryList}
     selectedCategory={categoryName}
     />      

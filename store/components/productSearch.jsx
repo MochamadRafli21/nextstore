@@ -47,7 +47,7 @@ export default function ProductSearch() {
     { search && isSearching?
       <div onBlur={()=> setIsSearching(false)} className='absolute text-base-content top-16 left-0 z-10'>
       <ul className="menu z-30 bg-base-100 w-56 p-2 shadow-black rounded-box">
-      <Link onClick={()=> setIsSearching(false)} href={`/product?q=${search}`}>
+      <Link onClick={()=> setIsSearching(false)} href={`/product/search/${search}/-/`}>
         <li>
           <a>Cari {search}...</a>
         </li>

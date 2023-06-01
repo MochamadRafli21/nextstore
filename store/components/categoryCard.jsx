@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function CategoryCard(props) {
   return (
     <>
-    <Link href={"/product/?category="+props.name}>
+    <Link href={"/product/search/-/"+props.name}>
     <div className='card min-w-[80px] p-3 m-2 flex-col items-center bg-accent shadow-xl'>
     {props.image ?
       <div className='avatar'>

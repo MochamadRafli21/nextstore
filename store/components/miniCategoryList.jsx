@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 
 export default function MiniCategoryList(props) {
-  console.log(props)
+  const product = props.name ? props.product : "-"
   const categories = props ? props.categories: []
   const selectedCategory = props ? props.selectedCategory : ''
   return (
@@ -14,13 +14,13 @@ export default function MiniCategoryList(props) {
       {
         if(selectedCategory && selectedCategory.toLowerCase() == category.name.toLowerCase()){
           return <div className='badge min-w-fit m-2 text-ellipsis'>
-            <Link href={`/product/search/-/${category.name}`}>
+            <Link href={`/product/search/${product}/${category.name}`}>
             <p>{category.name}</p>
             </Link> 
           </div>
         }
           return <div className='badge badge-accent badge-outline min-w-fit m-2 text-ellipsis'>
-            <Link href={`/product/search/-/${category.name}`}>
+            <Link href={`/product/search/${product}/${category.name}`}>
             <p>{category.name}</p>
             </Link> 
           </div>
