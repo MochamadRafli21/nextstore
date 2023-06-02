@@ -5,7 +5,7 @@ export default function CategoryCard(props) {
   return (
     <>
     <Link href={"/product/search/-/"+props.name}>
-    <div className='card min-w-[80px] p-3 m-2 flex-col items-center bg-accent shadow-xl'>
+    <div className='card min-w-[80px] p-3 m-2 flex flex-col items-center bg-base-100 shadow-xl'>
     {props.image ?
       <div className='avatar'>
       <div className='w-8 md:w-16 bg-base-100 rounded'>
@@ -14,13 +14,13 @@ export default function CategoryCard(props) {
       </div>
       : 
       <div className='avatar placeholder'>
-      <div className='text-accent-content rounded w-8 md:w-16'>
+      <div className='text-primary rounded w-8 md:w-16'>
       <span>...</span>
       </div>
       </div>
     }
-    <div className='mt-2 items-center'>
-    <span className='text-accent-content font-bold text-sm'>
+    <div className='items-center'>
+    <span className='text-primary font-bold text-sm'>
     {props.name}
     </span>
     </div>

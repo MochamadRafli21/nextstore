@@ -26,14 +26,14 @@ export default function ProductSearch() {
     <>
     <div className='relative'>
     <div className="form-control text-base-content">
-    <div className='flex h-fit input input-bordered input-sm'>
+    <div className='flex input'>
     <input
     type="text"
     placeholder="Search" 
     onFocus={() => setIsSearching(true)}
     onChange={(e)=> setSearch(e.target.value)}
     value={search}
-    className="input-sm focus:outline-0"
+    className=" focus:outline-0"
     />
     {search.length?
       <button onClick={()=> setSearch("")} className="text-sm text-error font-bold"  type="reset">

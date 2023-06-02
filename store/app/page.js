@@ -13,16 +13,20 @@ export default async function Home() {
   const bannerList = resB ? resB.data : [];
   return (
     <>
-    <main className="flex flex-col items-center justify-between p-2">
+    <main>
       <Navbar/>
       <Carousel
         banners={...bannerList}
       />
-    <div className="bg-primary w-full flex flex-col p-4 rounded-xl md:w-3/4 items-start justify-between">
-    <h1 className="text-primary-content text-xl md:text-3xl font-bold">
-    Kategori Favorit
+
+    <div className="w-full flex flex-col items-center justify-center">
+    <div className="w-full flex flex-col md:w-fit">
+    <div className="flex flex-col p-2 rounded-xl w-full md:w-3/4 items-start justify-between">
+    <h1 className="text-accent text-xl md:text-3xl font-bold">
+    Kategori
     </h1>
-    <div className="flex flex-wrap w-full mt-4">
+    </div>
+    <div className="grid grid-cols-3 md:grid-cols-4 bg-secondary shadow-xl gap-2 md:rounded-xl">
     {
       categoryList.map((category) => 
         <CategoryCard
@@ -43,6 +47,7 @@ export default async function Home() {
     </h1>
     </div>
     <ProductList/>
+    </div>
     <Footer/> 
     </main>
     </>
