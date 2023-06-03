@@ -1,11 +1,12 @@
 'use client'
 import React from 'react'
 
-export default function SingleSelect(props={title:"",options:[],selectedOptions:""}) {
+export default function SingleSelect(props={title:"",options:[],selectedOptions:"",isDisabled:false}) {
   const title = props.title
   const options = props.options
-  const selectedOptions = props.selected
+  const selectedOptions = props.selectedOptions
   const setSelected = props.setSelected
+  const isDisabled= props.isDisabled
   return (
     <>
     <div className="form-control w-full max-w-xs">
@@ -16,7 +17,7 @@ export default function SingleSelect(props={title:"",options:[],selectedOptions:
       :
       <></>
     }
-    <select value={selectedOptions} onChange={(e)=>{setSelected(e.target.value)}} className="select select-bordered">
+    <select value={selectedOptions} onChange={(e)=>{setSelected(e.target.value)}} disabled={isDisabled? true:false} className="select select-bordered">
     {!selectedOptions?
       <option value={''} className='selected disabled'>Pilih opsi</option>
       :

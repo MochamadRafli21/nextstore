@@ -29,17 +29,15 @@ export default function CategoryForm() {
       }
     }
   }
-  const fetchCategory = async ()=>{
+
+  useEffect(async()=>{
     const res = await fetch('/api/category')
     if(!res.ok){
       throw new Error("failed to fetch category")
     }
     const data = await res.json()
     setCategories(data?data.data:[])
-  }
-
-  useEffect(()=>{
-    fetchCategory()
+    return
     },[]
   )
 
@@ -123,7 +121,7 @@ export default function CategoryForm() {
         ()=>{
           setPayload({
             ...payload,
-            price: payload.price? payload.price.replace(/[\D\s\._\-]+/g, ''):0
+            price: payload.price? payload.price.replace(/[\D\s\._\-]+/g, ''):''
           })
         }
       }
@@ -133,9 +131,8 @@ export default function CategoryForm() {
     <SingleSelect
       title="Kategori"
       options={categories?categories:[]}
-      selected={payload.category}
+      selectedOptions={payload.category}
       setSelected={updateCategory}
-
     />    
 
     <label className="label" for="url">

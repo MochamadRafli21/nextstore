@@ -4,7 +4,7 @@ import { getCategory } from "../store/category"
 
 export default async function Product() {
   const resC = await getCategory()
-  const categoryList = resC.data ? resC.data.slice(0,5) : []
+  const categoryList = resC ? resC.data.slice(0,5) : []
   return (
     <>
     <main className="flex flex-col items-center justify-between">
