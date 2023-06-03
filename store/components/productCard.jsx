@@ -7,7 +7,7 @@ export default function ProductCard(props) {
   return (
     <>
     <Link href={"/product/"+props.id} >
-    <div className="card h-[360px] card-compact md:my-4 border-primary bg-base-100 shadow-xl">
+    <div className="card h-[360px] card-compact md:my-4 bg-base-100 shadow-xl">
       {
         props.image ? 
         <figure><img className='w-full h-[200px] min-h-52 max-h-52 object-contain rounded-xl' src={props.image} alt={props.name} /></figure>
@@ -17,7 +17,7 @@ export default function ProductCard(props) {
       <h2 className="text-sm card-title">
         {props.name}
       </h2>
-      <h6 className='font-bold text-primary'>{aTprice}</h6>
+      <h6 className='font-bold text-accent'>{aTprice}</h6>
       <p className='text-sm line-clamp-2'>{props.description}</p>
         {
           props.isHighlight?

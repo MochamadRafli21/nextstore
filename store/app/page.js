@@ -23,8 +23,8 @@ export default async function Home() {
         />      
       </div>
     <div className="w-full flex flex-col items-center justify-center">
-    <div className="bg-accent mt-6 flex flex-col p-4 rounded-xl w-full md:w-3/4 items-start justify-between">
-    <h1 className="text-accent-content text-xl md:text-3xl font-bold">
+    <div className="bg-primary mt-6 flex flex-col p-4 rounded-xl w-full md:w-3/4 items-start justify-between">
+    <h1 className="text-primary-content text-xl md:text-3xl font-bold">
     Daftar Produk
     </h1>
     </div>
