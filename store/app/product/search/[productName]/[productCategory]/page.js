@@ -10,14 +10,14 @@ export default async function Product({params}) {
   return (
     <>
     <main className="flex flex-col items-center justify-between">
-    <h1 className="mt-4 text-base-content font-bold text-xl md:text-3xl">
-    Daftar Product
-    </h1>
     <MiniCategoryList
     product={productName}
     categories={categoryList}
     selectedCategory={categoryName}
     />      
+    <h1 className="mt-4 text-base-content font-bold text-xl md:text-3xl">
+    Daftar Product
+    </h1>
     <ProductList
       name = {productName == "-"? "":productName }
       categoryName = {categoryName == "-"? "": categoryName}

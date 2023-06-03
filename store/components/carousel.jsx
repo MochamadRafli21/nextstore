@@ -5,7 +5,6 @@ function Slide (props){
   const beforeItemId = `#slide${props.currentId}`
   const currentItemId = `slide${props.currentId+1}` 
   const lastItem = `#slide${props.lastItem}`
-  console.log(props.url)
   if(props.url){
     return (
       <>
@@ -33,7 +32,7 @@ export default function Carousel(props) {
   const listImage = props.banners
   return (
     <>
-    <div className='mx-2 my-4 carousel w-full max-w-7xl'>
+    <div className='carousel w-full max-w-screen-2xl'>
     { listImage.length?
       listImage.map((item, index) => 
         <Slide 

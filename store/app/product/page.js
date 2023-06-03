@@ -8,12 +8,12 @@ export default async function Product() {
   return (
     <>
     <main className="flex flex-col items-center justify-between">
-    <h1 className="mt-4 text-base-content font-bold text-xl md:text-3xl">
-    Daftar Product
-    </h1>
     <MiniCategoryList
     categories={categoryList}
     />      
+    <h1 className="mt-4 text-base-content font-bold text-xl md:text-3xl">
+    Daftar Product
+    </h1>
     <ProductList/>
     </main>
     </>
