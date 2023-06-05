@@ -4,7 +4,6 @@ import ProductDelete from '../product/ProductDelete'
 
 export default function ProductTable(props) {
   const products = props.products
-  console.log(products)
   return (
     <>
     <div id='product' className="my-2 flex justify-center overflow-x-auto">

@@ -16,3 +16,16 @@ export async function postOrder(payload) {
   }
 }
 
+export async function getOrder() {
+  let url = `${process.env.HOST}api/order`
+
+  try{
+    const res = await fetch(url, {cache: 'no-store'});
+    if (!res.ok) {
+    throw new Error('Failed to fetch data');
+    }
+    return res.json();
+  }catch(error){
+    console.log(error)
+  }
+}

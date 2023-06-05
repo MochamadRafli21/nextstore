@@ -3,20 +3,21 @@ import prisma from "@/prisma/prismaClient";
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const product = await prisma.product.findMany(
+  const data = await prisma.order.findMany(
     {
       include: {
         product:true
       }
     }
   )
-  return NextResponse.json({ data: product });
+  console.log(data)
+  return NextResponse.json({ data });
 }
 
 export async function POST(request) {
   const res = await request.json()
   const date = new Date()
-  const uuid = date.getUTCFullYear().toString() + date.getUTCMonth.toString() + date.getUTCDay().toString()
+  const uuid = date.getUTCFullYear().toString() + date.getUTCMonth().toString() + date.getUTCDay().toString()
   if(!res.product){
     throw new Response(JSON.stringify({"message": "Product Is Missing"}),{status: 400})
   }

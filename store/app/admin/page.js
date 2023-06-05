@@ -2,16 +2,20 @@
 import {getCategory } from "../store/category"
 import { getBanner } from "../store"
 import { getProductServer } from "../store/product"
+import { getOrder } from "../store/order";
 
 import CategoryTable from "@/components/admin/categoryTable";
 import Link from "next/link";
 import BannerTable from "@/components/admin/bannerTable";
 import ProductTable from "@/components/admin/productTable";
+import OrderTable from "@/components/admin/orderTable";
 
 export default async function Admin() {
   const resC = await getCategory()
   const resB = await getBanner()
   const resP = await getProductServer()
+  const resO = await getOrder()
+  const orderList = resO? resO.data: [];
   const categoryList = resC ? resC.data : []; 
   const bannerList = resB ? resB.data : [];
   const productList = resP ? resP.data: [];
@@ -19,7 +23,22 @@ export default async function Admin() {
     <>
     <main className="h-full flex flex-col items-center justify-between p-2">
     <div className="w-full md:w-1/2 justify-start m-1 text-base-content text-lg font-bold">
-    
+
+    <div className="flex justify-between mt-2">
+    <h1>
+    Daftar Pesanan
+    </h1>
+    <Link href="/order/add">
+    <button className="btn btn-accent btn-sm btn-active text-accent-content">
+    + Pesanan Baru
+    </button>
+    </Link>
+    </div>
+
+    <OrderTable
+    orders = {orderList}
+    />
+
     <div className="flex justify-between mt-2">
     <h1>
     Daftar Kategori
