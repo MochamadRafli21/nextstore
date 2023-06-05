@@ -24,6 +24,7 @@ export async function POST(request) {
   if(!product){
     throw new Response(JSON.stringify({"message": "Product Is Missing"}),{status: 400})
   }
+  try {
   const data = await prisma.order.create({
     data:{
       uuid,
@@ -33,11 +34,17 @@ export async function POST(request) {
       notes: res.notes,
       product_name: product.name,
       price: parseInt(product.price),
-      productId: res.product
-    },
-    include:{
-      product:true
+      product: {
+        connect:{
+          id: product.id
+        }
+      }
     }
   })
+  console.log(data)
   return NextResponse.json({ data });
+  } catch (error) {
+    console.log(error)
+    throw new Response(JSON.stringify({"message": error}), {status: 400})  
+  }
 }

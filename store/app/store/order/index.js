@@ -1,4 +1,4 @@
-export async function postProduct(payload) {
+export async function postOrder(payload) {
   try{
     const res = await fetch(
       `/api/order`,

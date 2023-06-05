@@ -2,6 +2,8 @@
 import React, {useState, useEffect} from 'react'
 import { useRouter } from 'next/navigation'
 import SingleSelect from '../select/singleSelect'
+import { postOrder } from '@/app/store/order'
+
 export default function AddOrder(props) {
   const router = useRouter()
   const [products, setProducts] = useState([]) 
@@ -9,7 +11,7 @@ export default function AddOrder(props) {
   const getProduct = async()=>{
     setPayload({
       ...payload,
-      productId: props.productId
+      product: props.productId
     })
     const res = await fetch('/api/product')
     if(!res.ok){
@@ -25,7 +27,7 @@ export default function AddOrder(props) {
   const updateProduct= (value)=>{
     setPayload({
       ...payload,
-      categoryId:parseInt(value)
+      product:parseInt(value)
     })
   }
   async function submitOrder(e){
@@ -84,8 +86,8 @@ export default function AddOrder(props) {
     <input 
       className="input form-control input-bordered input-primary w-full" 
       type="number" 
-      name="851569310923" 
-      placeholder="Achmad Zainudin"
+      name="phone" 
+      placeholder="8510000000"
       onChange={(e)=>
         setPayload({
           ...payload,
@@ -123,7 +125,7 @@ export default function AddOrder(props) {
       className="textarea form-control input-bordered input-primary w-full" 
       type="text" 
       name="notes" 
-      placeholder="Jln.Sekelimus no 4, Keluarahan cipagaloh kecamatan cipagaloh Kota Bandung"
+      placeholder="Rumah Warna Biru"
       onChange={(e)=>
         setPayload({
           ...payload,

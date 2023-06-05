@@ -12,7 +12,7 @@ export default async function Product({params: {id}}) {
   const product = resPd.data
   return (
     <main className="flex flex-col items-center justify-between">
-    <div className="lg:grid lg:grid-cols-3 lg:p-3 gap-0 w-fit">
+    <div className="w-full lg:grid lg:grid-cols-3 lg:p-3 gap-0 lg:w-fit">
     <div className="lg:col-span-2">
     <ProductDetail
       name={product.name}
