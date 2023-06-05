@@ -5,6 +5,7 @@ import Footer from '@/components/footer'
 import {getCategory } from "./store/category"
 import { getBanner } from "./store"
 import MiniCategoryList from "@/components/miniCategoryList"
+import CategoryCard from "@/components/categoryCard"
 export default async function Home() {
   const resC = await getCategory()
   const resB = await getBanner()
@@ -18,9 +19,18 @@ export default async function Home() {
         <Carousel
           banners={...bannerList}
         />
-        <MiniCategoryList
-          categories={categoryList}
-        />      
+    <div className="w-full md:w-3/4 mt-2 p-2 flex flex-col rounded-xl text-base-content justify-start shadow">
+    <h1 className="text-xl font-bold">Daftar Kategori</h1>
+    <div className="flex flex-row">
+    {categoryList.map((item)=>
+      <CategoryCard 
+      image={item.image}
+      name={item.name}
+      />
+    )}
+    </div>
+
+      </div>
       </div>
     <div className="w-full flex flex-col items-center justify-center">
     <div className="bg-primary mt-6 flex flex-col p-4 rounded-xl w-full md:w-3/4 items-start justify-between">

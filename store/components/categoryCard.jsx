@@ -14,13 +14,13 @@ export default function CategoryCard(props) {
       </div>
       : 
       <div className='avatar placeholder'>
-      <div className='text-primary rounded w-8 md:w-16'>
+      <div className='text-base-content rounded w-8 md:w-16'>
       <span>...</span>
       </div>
       </div>
     }
     <div className='items-center'>
-    <span className='text-primary font-bold text-sm'>
+    <span className='text-base-content font-bold text-sm'>
     {props.name}
     </span>
     </div>
