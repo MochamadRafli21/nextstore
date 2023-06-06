@@ -38,8 +38,13 @@ export default function AddOrder(props) {
         if(!res.ok){
           throw new Error("Failed to Submit Order")
         }
-        router.push('/')
-        router.refresh('')
+        const selectedProduct = products.reduce(function(filtered, product){
+          if(product.id == payload.product){
+            filtered = product
+          }
+          return filtered
+        })
+        router.push(`https://wa.me/${payload.phone}?text=${encodeURI('Saya Ingin Memesan '+selectedProduct.name+ ' dengan harga '+payload.price)}`)
       } catch (error) {
         console.log(error)  
       }
@@ -75,6 +80,7 @@ export default function AddOrder(props) {
           name: e.target.value
         })
       }
+      required
       value={payload.name ? payload.name : ''}
     />
 
@@ -84,6 +90,7 @@ export default function AddOrder(props) {
     </span>
     </label> 
     <input 
+      required
       className="input form-control input-bordered input-primary w-full" 
       type="number" 
       name="phone" 
@@ -102,8 +109,9 @@ export default function AddOrder(props) {
       Alamat Penerima
     </span>
     </label> 
-    <input 
-      className="textarea form-control input-bordered input-primary w-full" 
+    <textarea
+      required
+      className="textarea textarea-sm form-control textarea-primary w-full" 
       type="text" 
       name="address" 
       placeholder="Jln.Sekelimus no 4, Keluarahan cipagaloh kecamatan cipagaloh Kota Bandung"
@@ -121,8 +129,8 @@ export default function AddOrder(props) {
       Catatan Penerima
     </span>
     </label> 
-    <input 
-      className="textarea form-control input-bordered input-primary w-full" 
+    <textarea 
+      className="textarea textarea-sm form-control textarea-primary w-full" 
       type="text" 
       name="notes" 
       placeholder="Rumah Warna Biru"
