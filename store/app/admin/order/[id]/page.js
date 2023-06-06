@@ -7,10 +7,12 @@ export default async function Product({params: {id}}) {
   if(!orderDetail){
     throw notFound()
   }
-  console.log(orderDetail)
+  const data = orderDetail.data
+  delete data.uuid
   return (
     <main className="flex flex-col items-center justify-between">
     <AddOrder
+      isEdit={true}
       prePayload = {orderDetail.data}
     /> 
     </main>

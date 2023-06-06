@@ -2,9 +2,9 @@
 import React, {useState, useEffect} from 'react'
 import { useRouter } from 'next/navigation'
 import SingleSelect from '../select/singleSelect'
-import { postOrder } from '@/app/store/order'
+import { postOrder, updateOrder } from '@/app/store/order'
 
-export default function AddOrder({productId , prePayload}) {
+export default function AddOrder({productId , prePayload, isEdit}) {
   const router = useRouter()
   const [products, setProducts] = useState([]) 
   const [payload, setPayload] = useState({})
@@ -24,8 +24,12 @@ export default function AddOrder({productId , prePayload}) {
   }
   useEffect(()=>{
     if(prePayload){
+      const p = prePayload
+      delete p.id
+      delete p.uuid
+      delete p.productId
       setPayload({
-        ...prePayload,
+        ...p,
         product: prePayload.productId
       })
     }
@@ -42,17 +46,24 @@ export default function AddOrder({productId , prePayload}) {
     e.preventDefault()
     if(payload){
       try {
-        const res = await postOrder(payload)
-        if(!res.ok){
-          throw new Error("Failed to Submit Order")
-        }
-        const selectedProduct = products.reduce(function(filtered, product){
-          if(product.id == payload.product){
-            filtered = product
+        if(!isEdit){
+          const res = await postOrder(payload)
+          if(!res.ok){
+            throw new Error("Failed to Submit Order")
           }
-          return filtered
-        })
-        router.push(`https://wa.me/${payload.phone}?text=${encodeURI('Saya Ingin Memesan '+selectedProduct.name+ ' dengan harga '+payload.price)}`)
+          const selectedProduct = products.reduce(function(filtered, product){
+            if(product.id == payload.product){
+              filtered = product
+            }
+            return filtered
+          })
+          router.push(`https://wa.me/${payload.phone}?text=${encodeURI('Saya Ingin Memesan '+selectedProduct.name+ ' dengan harga '+payload.price)}`)
+        }else{
+          const res = await updateOrder(prePayload.id, payload)
+          if(!res.ok){
+            throw new Error("Failed to update order")
+          }
+        }
       } catch (error) {
         console.log(error)  
       }

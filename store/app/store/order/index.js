@@ -41,3 +41,20 @@ export async function getOrderDetail(id) {
     console.log(error)
   }
 }
+
+export async function updateOrder(id, body){
+  console.log(body)
+  try{
+    const res = await fetch(`/api/order/${parseInt(id)}`, {
+      method: 'PUT',
+      body: JSON.stringify(body)
+    });
+    if (!res.ok) {
+    throw new Error('Failed to fetch data');
+    }
+    return res.json();
+  }catch(error){
+    console.log(error)
+  }
+
+}

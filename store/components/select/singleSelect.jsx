@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 
-export default function SingleSelect({title,options,selectedOptions,isDisabled}) {
+export default function SingleSelect({title,options,selectedOptions,isDisabled,setSelected}) {
   return (
     <>
     <div className="form-control w-full max-w-xs">
