@@ -1,4 +1,5 @@
 import React from 'react'
+import formatter from '@/utils/formater';
 import Link from "next/link";
 
 export default function OrderTable({orders}) {
@@ -45,7 +46,7 @@ export default function OrderTable({orders}) {
             {order.product_name}
             <br/>
             <span className='badge badge-secondary badge-sm text-secondary-content'>
-              {order.price}
+              {formatter.format(order.price).replace('IDR','Rp.' )}
             </span>
           </td>
         </tr>
