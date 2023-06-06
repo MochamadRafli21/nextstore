@@ -54,7 +54,7 @@ export default function AddOrder(props) {
     <SingleSelect
       title="Product"
       options={products?products:[]}
-      selectedOptions={payload.productId}
+      selectedOptions={payload.product}
       setSelected={updateProduct}
       isDisabled={true}
     />    
