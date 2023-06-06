@@ -21,7 +21,9 @@ export default function OrderTable({orders}) {
       orders.map((order)=> 
         <tr>
           <th>
-            {order.uuid}
+        <Link className='text-primary' href={`/admin/order/${order.id}`}>
+        {order.uuid}
+        </Link>
           </th>
           <td></td>
           <td>

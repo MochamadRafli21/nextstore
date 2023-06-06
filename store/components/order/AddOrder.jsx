@@ -4,15 +4,17 @@ import { useRouter } from 'next/navigation'
 import SingleSelect from '../select/singleSelect'
 import { postOrder } from '@/app/store/order'
 
-export default function AddOrder(props) {
+export default function AddOrder({productId , prePayload}) {
   const router = useRouter()
   const [products, setProducts] = useState([]) 
   const [payload, setPayload] = useState({})
   const getProduct = async()=>{
+    if(!prePayload){
     setPayload({
       ...payload,
-      product: props.productId
+      product: productId
     })
+    }
     const res = await fetch('/api/product')
     if(!res.ok){
       throw new Error("failed to fetch category")
@@ -21,6 +23,12 @@ export default function AddOrder(props) {
     setProducts(data?data.data:[])
   }
   useEffect(()=>{
+    if(prePayload){
+      setPayload({
+        ...prePayload,
+        product: prePayload.productId
+      })
+    }
     getProduct()
   },[])
 
@@ -58,7 +66,7 @@ export default function AddOrder(props) {
       options={products?products:[]}
       selectedOptions={payload.product}
       setSelected={updateProduct}
-      isDisabled={payload.product? true : false}
+      isDisabled={payload.product && !prePayload? true : false}
     />    
     
     <label className="label" for="name">
