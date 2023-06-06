@@ -52,16 +52,13 @@ export default function AddOrder(props) {
   }
   return (
     <form onSubmit={submitOrder}>
-    <div className='font-bold text-base-content'>
-    <h1>Pesan Sekarang</h1> 
-    </div>
     <div className="gap-2 mt-2 items-center text-base-content">
     <SingleSelect
       title="Product"
       options={products?products:[]}
       selectedOptions={payload.product}
       setSelected={updateProduct}
-      isDisabled={true}
+      isDisabled={payload.product? true : false}
     />    
     
     <label className="label" for="name">

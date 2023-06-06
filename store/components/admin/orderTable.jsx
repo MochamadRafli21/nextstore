@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function OrderTable({orders}) {
   return (
     <>
-    <div id='order' className="my-2 flex justify-center overflow-x-auto">
+    <div id='order' className="overflow-x-auto">
     <table className="table bg-base-100">
     <thead>
     <tr>

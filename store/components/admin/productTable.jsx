@@ -6,13 +6,12 @@ export default function ProductTable(props) {
   const products = props.products
   return (
     <>
-    <div id='product' className="my-2 flex justify-center overflow-x-auto">
-    <table className="table bg-base-100">
+    <div id='product' className="overflow-x-auto">
+    <table className="table">
     <thead>
     <tr>
     <th>Image</th>
     <th>Name</th>
-    <th></th>
     <th></th>
     </tr>
     </thead>
