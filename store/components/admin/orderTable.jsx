@@ -19,12 +19,10 @@ export default function OrderTable({orders}) {
     {orders ? 
       orders.map((order)=> 
         <tr>
-          <td>
+          <th>
             {order.uuid}
-          </td>
-          <td>
-            Tidak terdapat Status
-          </td>
+          </th>
+          <td></td>
           <td>
             <div className='flex flex-row'>
             <div className='mr-1'>
