@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 import SingleSelect from '../select/singleSelect'
 import { postOrder, updateOrder } from '@/app/store/order'
 
-export default function AddOrder({productId , prePayload, isEdit}) {
+export default function AddOrder({productId , prePayload, isEdit, isAdmin}) {
   const router = useRouter()
   const [products, setProducts] = useState([]) 
   const [payload, setPayload] = useState({})
@@ -53,21 +53,29 @@ export default function AddOrder({productId , prePayload, isEdit}) {
             }
             return filtered
           })
-          router.push(`https://wa.me/${payload.phone}?text=${encodeURI('Saya Ingin Memesan '+selectedProduct.name+ ' dengan harga '+payload.price)}`)
+          if(isAdmin){
+            router.push("/admin")
+          }else{
+            router.push(`https://wa.me/${payload.phone}?text=${encodeURI('Saya Ingin Memesan '+selectedProduct.name+ ' dengan harga '+payload.price)}`)
+          }
         }else{
           const subData = {
             name: payload.name,
             address:payload.address,
             phone: payload.phone,
-            price: payload.price,
             product:payload.product,
-            product_name: payload.product_name,
             notes:payload.notes
           }
 
           const res = await updateOrder(prePayload.id, subData)
           if(!res.ok){
+            console.log(res)
             throw new Error("Failed to update order")
+          }
+          if(isAdmin){
+            router.push("/admin")
+          }else{
+            router.push(`https://wa.me/${payload.phone}?text=${encodeURI('Saya Ingin Memesan '+selectedProduct.name+ ' dengan harga '+payload.price)}`)
           }
         }
       } catch (error) {

@@ -6,7 +6,7 @@ export default function ProductTable(props) {
   const products = props.products
   return (
     <>
-    <div id='product' className="overflow-x-auto">
+    <div className="mt-2 flex justify-center overflow-x-auto w-full">
     <table className="table">
     <thead>
     <tr>

@@ -6,6 +6,9 @@ import Makeid from "@/utils/shortuid";
 export async function GET() {
   const data = await prisma.order.findMany(
     {
+      orderBy: {
+        updatedAt: 'desc'
+      },
       include: {
         product:true
       }

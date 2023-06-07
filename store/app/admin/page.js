@@ -16,7 +16,7 @@ export default async function Admin() {
     <h1>
     Daftar Pesanan
     </h1>
-    <Link href="/order/add">
+    <Link href="/admin/order/add">
     <button className="btn btn-accent btn-sm btn-active text-accent-content">
     + Pesanan Baru
     </button>

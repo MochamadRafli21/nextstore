@@ -7,7 +7,6 @@ export default async function Admin() {
   const resC = await getCategory()
   const categoryList = resC ? resC.data : []; 
   return (
-    <>
     <main className="h-full flex flex-col items-center justify-between p-2">
     <div className="w-full md:w-1/2 justify-start m-1 text-base-content text-lg font-bold">
 
@@ -29,6 +28,5 @@ export default async function Admin() {
 
 
     </main>
-    </>
   )
 }

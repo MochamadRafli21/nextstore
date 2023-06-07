@@ -11,10 +11,18 @@ export default async function Product({params: {id}}) {
   delete data.uuid
   return (
     <main className="flex flex-col items-center justify-between">
-    <AddOrder
-      isEdit={true}
-      prePayload = {orderDetail.data}
-    /> 
+    <div className="m-4 w-full md:w-3/4 card card-bordered bg-base-100 rounded-xl">
+      <div className="card-body" >
+        <h1 className="text-accent card-title font-bold rounded-xl ">
+          Pesanan    
+        </h1>
+        <AddOrder
+          isAdmin={true}
+          isEdit={true}
+          prePayload = {orderDetail.data}
+        /> 
+      </div>
+    </div>
     </main>
   )
 }

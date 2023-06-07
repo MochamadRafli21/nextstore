@@ -24,15 +24,24 @@ export async function GET(_,{params}) {
 export async function PUT(request, {params}) {
   const id = parseInt(params.id)
   const res = await request.json()
+  if(!res.product){
+    throw new Response(JSON.stringify({"message": "Product Is Missing"}),{status: 400})
+  }
+  const product = await prisma.product.findFirst({where:{id: parseInt(res.product)}})
+  if(!product){
+    throw new Response(JSON.stringify({"message": "Product Is Missing"}),{status: 400})
+  }
   let data ={}
   if(res.product){
     data = {
       ...res,
       product:{
         connect:{
-          id: res.product
+          id: product.id
         }
-      }
+      },
+      product_name: product.name,
+      price: product.price
     }
   }else{
     data ={

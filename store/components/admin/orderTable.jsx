@@ -4,8 +4,7 @@ import Link from "next/link";
 
 export default function OrderTable({orders}) {
   return (
-    <>
-    <div id='order' className="overflow-x-auto">
+    <div className="mt-2 overflow-x-auto w-full">
     <table className="table bg-base-100">
     <thead>
     <tr>
@@ -61,7 +60,6 @@ export default function OrderTable({orders}) {
     </tbody>
     </table>
     </div>
-    </>
   )
 }
 

@@ -10,7 +10,9 @@ export default async function CreateOrder() {
         <h1 className="text-accent card-title font-bold rounded-xl ">
           Pesanan    
         </h1>
-        <AddOrder/>
+        <AddOrder
+          isAdmin={true}
+        />
       </div>
     </div>
 
