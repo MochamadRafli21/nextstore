@@ -24,9 +24,6 @@ export default async function Product({params: {id}}) {
     />
     </div>
     <div className="p-4 lg:p-2 lg:border-base-300 lg:border lg:rounded-xl lg:col-span-1">
-    <div className='font-bold text-base-content'>
-    <h1>Pesan Sekarang</h1> 
-    </div>
     <AddOrder
       productId = {parseInt(id)}
     /> 

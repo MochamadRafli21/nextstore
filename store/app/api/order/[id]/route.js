@@ -24,8 +24,23 @@ export async function GET(_,{params}) {
 export async function PUT(request, {params}) {
   const id = parseInt(params.id)
   const res = await request.json()
+  let data ={}
+  if(res.product){
+    data = {
+      ...res,
+      product:{
+        connect:{
+          id: res.product
+        }
+      }
+    }
+  }else{
+    data ={
+      ...res
+    }
+  }
   const req = await prisma.order.update({
-    data:res,
+    data,
     where: {
       id
     }
