@@ -5,7 +5,6 @@ import Link from 'next/link'
 export default function MiniCategoryList(props) {
   const product = props.name ? props.product : "-"
   const categories = props ? props.categories: []
-  console.log(categories)
   const selectedCategory = props ? props.selectedCategory : ''
   return (
     <>
