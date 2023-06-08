@@ -12,7 +12,7 @@ export default async function Product({params: {id}}) {
   const product = resPd.data
   return (
     <main className="flex flex-col items-center justify-between">
-    <div className="w-full lg:grid lg:grid-cols-3 lg:p-3 gap-0 lg:w-fit">
+    <div className="w-full grid grid-cols-1 lg:grid-cols-3 lg:p-3 gap-0 lg:w-fit">
     <div className="lg:col-span-2">
     <ProductDetail
       name={product.name}
@@ -23,10 +23,16 @@ export default async function Product({params: {id}}) {
       image={product.image}
     />
     </div>
-    <div className="p-4 lg:p-2 lg:border-base-300 lg:border lg:rounded-xl lg:col-span-1">
+    <div className="flex justify-center">
+    <div className="w-full m-3 lg:p-2 lg:border-base-300 lg:border lg:rounded-xl lg:col-span-1">
+    <h1 className="text-primary text-2xl font-bold">
+      Pesan Sekarang
+    </h1>
     <AddOrder
-      productId = {parseInt(id)}
+    productId = {parseInt(id)}
     /> 
+    </div>
+
     </div>
     </div>
     <ProductList/>

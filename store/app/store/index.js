@@ -1,4 +1,3 @@
-
 export async function getBanner() {
   try{
     const res = await fetch(`${process.env.HOST}api/banner`, {

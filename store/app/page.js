@@ -23,7 +23,7 @@ export default async function Home() {
     />
     <div className="w-full mt-2 p-2 flex flex-col rounded-xl text-base-content justify-start shadow">
     <h1 className="text-xl font-bold">Daftar Kategori</h1>
-    <div className="flex flex-row">
+    <div className="flex flex-row overflow-x-auto">
     {categoryList.map((item)=>
       <CategoryCard 
       image={item.image}

@@ -1,5 +1,6 @@
+
 export async function getProduct(query) {
-  let url = `api/product`
+  let url = `/api/product`
   if(query){
     const {q , category}=query
     if(q){
