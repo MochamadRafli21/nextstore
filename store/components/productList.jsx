@@ -9,7 +9,7 @@ export default async function ProductList(props) {
   const productList = resP ? resP.data : [];
   return (
     <>
-    <div className='bg-base-100 w-full md:w-3/4 m-4 rounded-xl text-primary-content'>
+    <div className='bg-base-100 w-full rounded-xl text-primary-content'>
     <div className='pt-2 w-full p-4 grid gap-4 grid-cols-2 md:grid-cols-3'>
     {productList.length ? productList.map((product) => 
       <ProductCard

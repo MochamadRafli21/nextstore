@@ -27,22 +27,15 @@ model Category {
   name  String @unique
   image String?
   product Product[]
-  categoryGroup CategoryGroup[]
+  group Group[]
 }
 
 model Group {
   id Int @id @default(autoincrement())
   name String @unique
-  categoryGroup CategoryGroup[]
+  category Category[]
 }
 
-model CategoryGroup{
-    id            Int @id @default(autoincrement())
-    category      Category @relation(fields: [categoryId], references: [id])
-    categoryId    Int
-    group         Group    @relation(fields: [groupId], references: [id])
-    groupId       Int
-}
 
 model Banner {
   id    Int @id @default(autoincrement())
