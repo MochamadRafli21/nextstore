@@ -7,7 +7,7 @@ export default async function Product() {
   const categoryList = resC ? resC.data.slice(0,5) : []
   return (
     <>
-    <main className="flex flex-col items-center justify-between">
+    <main className="flex flex-col items-center justify-center">
     <MiniCategoryList
     categories={categoryList}
     />      

@@ -1,17 +1,16 @@
 'use client'
 import React from 'react'
-import { deleteCategory } from '@/app/store/category'
 import { useRouter } from 'next/navigation'
-
-export default function CategoryDelete(props) {
+import { deleteGroup } from '@/app/store/group'
+export default function GroupDelete(props) {
   const id = props.id
   const router = useRouter()
   async function submitDelete(){
-    const res = await deleteCategory(id)
+    const res = await deleteGroup(id)
     if(!res){
       throw new Error("Tidak dapat menghapus kategori")
     }
-    router.push('/admin/category')
+    router.push('/admin/group')
     router.refresh()
   }
   return (

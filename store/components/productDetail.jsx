@@ -10,7 +10,7 @@ export default function ProductDetail(props) {
       props.image ? 
       <div className='mx-4 text-primary-content'>
       <figure>
-      <img className='w-[180px] md:w-[230px] h-[360px] min-h-52 max-h-52 object-contain' src={props.image} alt={props.name} />
+      <img className='w-full lg:w-[230px] h-[360px] min-h-52 max-h-52 object-cover' src={props.image} alt={props.name} />
       </figure>
       </div>
       :<></>
@@ -35,7 +35,7 @@ export default function ProductDetail(props) {
     
     <div className="w-full lg:hidden">
     {props.image?
-      <figure><img className='w-full max-w-screen-sm aspect-square object-contain' src={props.image} alt={props.name} /></figure>
+      <figure><img className='w-full max-w-screen-sm aspect-square object-cover' src={props.image} alt={props.name} /></figure>
       :<></>} 
     <div className='card mt-3'>
     <div className='card-title px-4 text-base-content w-full'>

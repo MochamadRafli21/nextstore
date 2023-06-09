@@ -11,23 +11,24 @@ export default function GroupList({groups}) {
         <ul>
           {groups.map((group)=>
             <li 
-              className='shadow w-[100px] mt-2 menu menu-compact text-secondary-content rounded-box bg-secondary'
+            className='shadow hover:bg-gray-100 rounded w-[100px] mt-2 menu menu-compact text-secondary-content flex items-center justify-center font-semibold'
               onMouseOver={()=>{
                 setNewList(group.category)
                 setFocusGroup(group.name)
               }}>
-              <Link href="/product">{group.name}</Link>
+              {group.name}
             </li>
           )
         }
         </ul>
       </div>
-      <div className='pl-2 '>
+    <div className='divider-horizontal'></div>
+      <div className='pl-9 '>
         <h1 className='text-secondary-content font-bold'>
           {focusGroup}
         </h1> 
         <div className='mt-2'>
-    <ul className=''>
+    <ul>
     {newList.map((item)=>
       <li>
       <Link href={`/product/search/-/${item.name}`} 
