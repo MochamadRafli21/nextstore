@@ -1,8 +1,14 @@
 import React from 'react';
 import GroupForm from '@/components/group/GroupForm';
 import { getCategory } from '@/app/store/category';
+import { getGroupDetail } from '@/app/store/group';
+import { notFound } from 'next/navigation';
 
-export default async function AddGroup() {
+export default async function EditGroup({params: {id}}) {
+  const detail = await getGroupDetail(id)
+  if(!detail){
+    throw notFound()
+  }
   const resC = await getCategory()
   const categoryList = resC ? resC.data : []; 
   return (
@@ -15,6 +21,8 @@ export default async function AddGroup() {
         </h1>
         <GroupForm
           resC = {categoryList}
+          data = {detail.data? detail.data: {}}
+          isEdit = {true}
         />
       </div>
     </div>

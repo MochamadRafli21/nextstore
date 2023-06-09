@@ -6,6 +6,9 @@ export async function GET() {
   const group = await prisma.group.findMany({
     include:{
       category:true
+    },
+    orderBy:{
+      id: 'desc'
     }
   }) 
   return NextResponse.json({ data: group });

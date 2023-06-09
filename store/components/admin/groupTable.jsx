@@ -25,7 +25,8 @@ export default function GroupTable({groups}) {
           </td>
           <td>
             {group.category?<ul>
-              {group.category.splice(0,2).map((category)=><li className='badge'>{category.name}</li>)}
+              {group.category.splice(0,2).map((category)=><li className='mx-1 badge'>{category.name}</li>)}
+              {group.category.length > 1 ? <li className='badge'>And {group.category.length} More..</li>:<></>}
               </ul>:"group blm memiliki kategori"}
           </td>
           <td className='text-error'>

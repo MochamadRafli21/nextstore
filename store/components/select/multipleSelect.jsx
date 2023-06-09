@@ -50,10 +50,10 @@ export default function MultySelect({title,options,selectedOptions,isDisabled,se
       :
       <></>
     }
-    <div className='w-full relative'>
+    <div className='w-full relative bg-base-200 rounded-box'>
     <div
     onMouseDown={()=>{setHideList(!hideList)}}
-    className="bg-white h-fit select p-2 items-center select-bordered gap-2 flex flex-row flex-wrap form-control w-full">
+    className="h-fit select p-2 items-center select-bordered gap-2 flex flex-row flex-wrap form-control w-full">
     {selectedOptions?
       selectedOptions.map((selected)=>
         <div 
@@ -68,7 +68,8 @@ export default function MultySelect({title,options,selectedOptions,isDisabled,se
       :<></>
     }
     <input
-    className='w-fit focus:outline-0 hover:outline-0 focus:bg-opacity-0'
+    onFocus={()=>{setHideList(false)}}
+    className='input input-sm w-full max-w-sm focus:outline-0 hover:outline-0 focus:bg-opacity-0'
     type='text'
     placeholder='Ketik kategori yang ingin ditambahkan...'
     value={search} 

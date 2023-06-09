@@ -1,13 +1,12 @@
 "use client"
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
-import { postGroup } from '@/app/store/group';
+import { postGroup, updateGroup } from '@/app/store/group';
 import MultySelect from '../select/multipleSelect';
-
-export default function GroupForm({resC}) {
+export default function GroupForm({resC, data, isEdit}) {
   const router = useRouter()
-  const [payload, setPayload] = useState({})
-  const [categories, setCategories] = useState([])
+  const [payload, setPayload] = useState(data? data : {})
+  const [categories, setCategories] = useState(data? data.category:[])
 
   const updateCategory = (category)=>{
     const pCategory = category.map((item)=>{
@@ -22,16 +21,29 @@ export default function GroupForm({resC}) {
 
   async function submitGroup(e){
     e.preventDefault()
-    if(payload){
-      try {
-        const res = await postGroup(payload)
-        if(!res.ok){
-          throw new Error("Failed to add banner")
+    if(isEdit){
+        try {
+          const res = await updateGroup(data.id,payload)
+          if(!res.ok){
+            throw new Error("Failed to update group")
+          }
+          router.push('/admin/group')
+          router.refresh('')
+        } catch (error) {
+          console.log(error)  
         }
-        router.push('/admin/group')
-        router.refresh('')
-      } catch (error) {
-        console.log(error)  
+    }else{
+      if(payload){
+        try {
+          const res = await postGroup(payload)
+          if(!res.ok){
+            throw new Error("Failed to create group")
+          }
+          router.push('/admin/group')
+          router.refresh('')
+        } catch (error) {
+          console.log(error)  
+        }
       }
     }
   }
@@ -50,6 +62,7 @@ export default function GroupForm({resC}) {
       type="text" 
       name="group" 
       placeholder="Rumah Tangga"
+      required
       onChange={(e)=>
         setPayload({
           ...payload,

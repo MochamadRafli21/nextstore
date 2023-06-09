@@ -48,3 +48,31 @@ export async function postGroup(payload) {
     console.log(error)
   }
 }
+
+export async function getGroupDetail(id) {
+  try{
+    const res = await fetch(`${process.env.HOST}api/group/${parseInt(id)}`, {cache: 'no-store'});
+    if (!res.ok) {
+    throw new Error('Failed to fetch data');
+    }
+    return res.json();
+  }catch(error){
+    console.log(error)
+  }
+}
+
+export async function updateGroup(id, body){
+  try{
+    const res = await fetch(`/api/group/${parseInt(id)}`, {
+      method: 'PUT',
+      body: JSON.stringify(body)
+    });
+    if (!res.ok) {
+    throw new Error('Failed to fetch data');
+    }
+    return res;
+  }catch(error){
+    console.log(error)
+  }
+
+}
