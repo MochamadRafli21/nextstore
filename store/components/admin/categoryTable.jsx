@@ -1,12 +1,12 @@
 import React from 'react'
 import CategoryDelete from '../category/CategoryDelete'
-
+import Link from 'next/link'
 export default function CategoryTable(props) {
   const categories = props.categories
   return (
     <>
     <div className="mt-2 overflow-x-auto w-full">
-    <table className="table text-base-content w-full">
+    <table className="table table-fixed table-compact text-base-content w-full">
     <thead className='bg-accent'>
     <tr>
     <th>Image</th>
@@ -19,6 +19,11 @@ export default function CategoryTable(props) {
     {categories ? 
       categories.map((category)=> 
         <tr>
+          <td className='link link-primary'>
+            <Link href={`/admin/category/${category.id}`}>
+            {category.name}
+            </Link>
+          </td>
           <td>
           <div className="flex items-center space-x-3">
           <div className="avatar">
@@ -29,9 +34,6 @@ export default function CategoryTable(props) {
           </div>
           </td>
 
-          <td>
-            {category.name}
-          </td>
           <td className='text-error'>
             <div>
               <CategoryDelete id={category.id}/>
