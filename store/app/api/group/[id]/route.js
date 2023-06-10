@@ -27,16 +27,6 @@ export async function GET(_,{params}) {
 export async function PUT(request, {params}) {
   const id = parseInt(params.id)
   const res = await request.json()
-  await prisma.group.update({
-    data:{
-      category:{
-        set:[]
-      }
-    },
-    where: {
-      id
-    }
-  }) 
   let data ={}
   if(res.category){
   const ids = await res.category.map((cId)=>{
@@ -58,6 +48,16 @@ export async function PUT(request, {params}) {
       ...res
     }
   }
+  await prisma.group.update({
+    data:{
+      category:{
+        set:[]
+      }
+    },
+    where: {
+      id
+    }
+  }) 
   const req = await prisma.group.update({
     data,
     where: {

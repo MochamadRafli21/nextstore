@@ -2,10 +2,40 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
 import { postCategory } from '@/app/store/category';
+import MultySelect from '../select/multipleSelect';
+import SingleSelect from '../select/singleSelect';
 
-export default function CategoryForm() {
+export default function CategoryForm({resP, data}) {
   const router = useRouter()
   const [payload, setPayload] = useState({})
+  const [products, setProducts] = useState(data? data.product:[])
+  const currentHighlight = data ? data.isHighlight : false
+  const [highlight, setHighlight] = useState(currentHighlight? "Tampilkan": "Sembunyikan")
+  const updateHighlight = (value)=>{
+    if(value == "Tampilkan"){
+      setHighlight("Tampilkan")
+      setPayload({
+        ...payload,
+        isHighlight: true
+      })
+    }else{
+      setHighlight("Sembunyikan")
+      setPayload({
+        ...payload,
+        isHighlight: false
+      })
+    }
+  }
+  const updateProduct = (products)=>{
+    const productIds = products.map((item)=>{
+      return item.id
+    })
+    setProducts(products)
+    setPayload({
+      ...payload,
+      product: productIds
+    })
+  }
   async function submitCategory(e){
     e.preventDefault()
     if(payload){
@@ -45,6 +75,27 @@ export default function CategoryForm() {
       value={payload.name ? payload.name : ''}
     />
 
+    <label className="label" for="product">
+    <span className="label-text">
+      Product
+    </span>
+    </label> 
+    <MultySelect
+      options={resP? resP: []}
+      selectedOptions={products}
+      setSelected={updateProduct}
+    />
+
+    <label className="label" for="isHighlight">
+    <span className="label-text">
+      Highlight Kategori di halaman utama
+    </span>
+    </label> 
+    <SingleSelect
+    options={[{name:"Tampilkan"}, {name:"Sembunyikan"}]}
+      selectedOptions={highlight}
+      setSelected={updateHighlight}
+    />
 
     <label className="label" for="url">
     <span className="label-text">

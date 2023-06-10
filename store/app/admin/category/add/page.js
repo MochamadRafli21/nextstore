@@ -1,7 +1,9 @@
 import React from 'react';
 import CategoryForm from '@/components/category/CategoryForm';
-
+import { getProductServer } from '@/app/store/product';
 export default async function AddCategory() {
+  const resP = await getProductServer()
+  const productList = resP ? resP.data: [];
   
   return (
     <>
@@ -11,7 +13,9 @@ export default async function AddCategory() {
         <h1 className="text-accent card-title font-bold rounded-xl ">
           Kategori    
         </h1>
-        <CategoryForm/>
+        <CategoryForm
+          resP={productList}
+        />
       </div>
     </div>
 
