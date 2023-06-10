@@ -1,3 +1,6 @@
+import prisma from "@/prisma/prismaClient";
+import { NextResponse } from 'next/server';
+
 export async function PUT(request, {params}) {
   const id = parseInt(params.id)
   const res = await request.json()

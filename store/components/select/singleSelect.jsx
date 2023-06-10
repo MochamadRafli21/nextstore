@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 
-export default function SingleSelect({title,options,selectedOptions,isDisabled,setSelected}) {
+export default function SingleSelect({title,className,options,selectedOptions,isDisabled,setSelected}) {
   return (
     <>
     <div className="form-control w-full max-w-xs">
@@ -12,7 +12,11 @@ export default function SingleSelect({title,options,selectedOptions,isDisabled,s
       :
       <></>
     }
-    <select value={selectedOptions} onChange={(e)=>{setSelected(e.target.value)}} disabled={isDisabled? true:false} className="select select-bordered">
+    <select 
+      value={selectedOptions} 
+      onChange={(e)=>{setSelected(e.target.value)}} 
+      disabled={isDisabled? true:false} 
+      className={`select select-bordered ${className}`}>
     {!selectedOptions?
       <option value={''} className='selected disabled'>Pilih opsi</option>
       :

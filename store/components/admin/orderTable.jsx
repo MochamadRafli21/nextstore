@@ -1,6 +1,7 @@
 import React from 'react'
 import formatter from '@/utils/formater';
 import Link from "next/link";
+import UpdateOrderStatus from '../order/UpdateOrderStatus';
 
 export default function OrderTable({orders}) {
   return (
@@ -24,7 +25,14 @@ export default function OrderTable({orders}) {
         {order.uuid}
         </Link>
           </th>
-          <td></td>
+          <td>
+            {
+              <UpdateOrderStatus
+                orderId={order.id}
+                currentStatus={order.status.toLowerCase()}
+              />
+            }
+          </td>
           <td>
             <div className='flex flex-row'>
             <div className='mr-1'>
