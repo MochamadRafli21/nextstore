@@ -1,5 +1,5 @@
 import React from 'react'
-import CategoryDelete from '@/components/category/CategoryDelete'
+import CategoryDelete from '@/components/category/categorydelete'
 import Link from 'next/link'
 export default function CategoryTable(props) {
   const categories = props.categories
