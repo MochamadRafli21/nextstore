@@ -25,7 +25,7 @@ export default function ProductSearch() {
   return (
     <>
     <div className='relative'>
-    <div className="form-control text-base-content">
+    <div className="form-control input input-primary text-base-content">
     <div className='flex bg-base-100 input'>
     <input
     type="text"
