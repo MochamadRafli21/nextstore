@@ -1,13 +1,13 @@
 "use client"
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
-import { postCategory } from '@/app/store/category';
+import { postCategory, updateCategory } from '@/app/store/category';
 import MultySelect from '../select/multipleSelect';
 import SingleSelect from '../select/singleSelect';
 
-export default function CategoryForm({resP, data}) {
+export default function CategoryForm({resP, data, isEdit }) {
   const router = useRouter()
-  const [payload, setPayload] = useState({})
+  const [payload, setPayload] = useState(data? data :{})
   const [products, setProducts] = useState(data? data.product:[])
   const currentHighlight = data ? data.isHighlight : false
   const [highlight, setHighlight] = useState(currentHighlight? "Tampilkan": "Sembunyikan")
@@ -38,17 +38,34 @@ export default function CategoryForm({resP, data}) {
   }
   async function submitCategory(e){
     e.preventDefault()
+    if(isEdit){
+      console.log(isEdit)
+      const finalPayload = {
+        name: payload.name,
+        image: payload.image,
+        product: payload.product,
+        isHighlight: payload.isHighlight
+      }
+      const res = await updateCategory(payload.id, finalPayload)
+      if(!res.ok){
+        throw new Error("Failed to add banner")
+      }
+      router.push('/admin/category')
+      router.refresh('')
+
+    }else{
     if(payload){
       try {
         const res = await postCategory(payload)
         if(!res.ok){
           throw new Error("Failed to add banner")
         }
-        router.push('/admin')
+        router.push('/admin/category')
         router.refresh('')
       } catch (error) {
         console.log(error)  
       }
+    }
     }
   }
 
