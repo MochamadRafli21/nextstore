@@ -5,6 +5,7 @@ import { notFound } from "next/navigation"
 import ProductDetail from "@/components/productDetail"
 import AddOrder from "@/components/order/AddOrder"
 export default async function Product({params: {id}}) {
+  const businessPhone  = process.env.PHONE
   const resPd = await getProductDetail(parseInt(id))
   if(!resPd){
     throw notFound()
@@ -30,6 +31,7 @@ export default async function Product({params: {id}}) {
     </h1>
     <AddOrder
     productId = {parseInt(id)}
+    phone = {businessPhone}
     /> 
     </div>
 

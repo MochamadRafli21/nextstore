@@ -4,10 +4,11 @@ import { useRouter } from 'next/navigation'
 import SingleSelect from '../select/singleSelect'
 import { postOrder, updateOrder } from '@/app/store/order'
 
-export default function AddOrder({productId , prePayload, isEdit, isAdmin}) {
+export default function AddOrder({productId , prePayload, isEdit, isAdmin, phone}) {
   const router = useRouter()
   const [products, setProducts] = useState([]) 
   const [payload, setPayload] = useState({})
+  const [sendNotif, setSendNotif] = useState(false)
   const getProduct = async()=>{
     if(!prePayload){
     setPayload({
@@ -56,7 +57,12 @@ export default function AddOrder({productId , prePayload, isEdit, isAdmin}) {
           if(isAdmin){
             router.push("/admin")
           }else{
-            router.push(`https://wa.me/${payload.phone}?text=${encodeURI('Saya Ingin Memesan '+selectedProduct.name+ ' dengan harga '+payload.price)}`)
+            if(phone){
+            router.push(`https://wa.me/${phone}?text=${encodeURI('Saya Ingin Memesan '+selectedProduct.name+ ' atas nama '+payload.name)}`)
+            }else{
+              setPayload({product: payload.product})
+              setSendNotif(true)
+            }
           }
         }else{
           const subData = {
@@ -84,6 +90,7 @@ export default function AddOrder({productId , prePayload, isEdit, isAdmin}) {
     }
   }
   return (
+    <>
     <form onSubmit={submitOrder}>
     <div className="gap-2 mt-2 items-center text-base-content">
     <SingleSelect
@@ -178,5 +185,10 @@ export default function AddOrder({productId , prePayload, isEdit, isAdmin}) {
     Simpan 
     </button>
     </form>
+    <div onClick={()=>{setSendNotif(false)}} className={`z-50 w-60 alert alert-success bottom-0 right-0 m-2 ${sendNotif ? 'absolute' : 'hidden' }`}>
+      <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+      <span>Your purchase has been confirmed!</span>
+    </div>
+    </>
   )
 }
