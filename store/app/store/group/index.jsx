@@ -2,7 +2,7 @@ export async function getGroup() {
   let url = `${process.env.HOST}api/group`
 
   try{
-    const res = await fetch(url, {cache: 'no-store'});
+    const res = await fetch(url);
     if (!res.ok) {
     throw new Error('Failed to fetch data');
     }
@@ -51,7 +51,7 @@ export async function postGroup(payload) {
 
 export async function getGroupDetail(id) {
   try{
-    const res = await fetch(`${process.env.HOST}api/group/${parseInt(id)}`, {cache: 'no-store'});
+    const res = await fetch(`${process.env.HOST}api/group/${parseInt(id)}`);
     if (!res.ok) {
     throw new Error('Failed to fetch data');
     }

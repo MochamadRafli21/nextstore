@@ -6,7 +6,7 @@ import MultySelect from '../select/multipleSelect';
 export default function GroupForm({resC, data, isEdit}) {
   const router = useRouter()
   const [payload, setPayload] = useState(data? data : {})
-  const [categories, setCategories] = useState(data.category? data.category:[])
+  const [categories, setCategories] = useState(data? data.category:[])
 
   const updateCategory = (category)=>{
     const pCategory = category.map((item)=>{
