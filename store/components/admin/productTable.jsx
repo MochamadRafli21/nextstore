@@ -1,6 +1,6 @@
 import React from 'react'
 import formatter from '@/utils/formater'
-import ProductDelete from '../product/ProductDelete'
+import ProductDelete from '@/components/product/ProductDelete'
 
 export default function ProductTable(props) {
   const products = props.products

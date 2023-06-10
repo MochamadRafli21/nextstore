@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductCard from './productCard'
+import ProductCard from '@/components/productCard'
 import { getProductServer } from '@/app/store/product'
 
 export default async function ProductList(props) {

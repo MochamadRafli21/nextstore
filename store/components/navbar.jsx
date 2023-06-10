@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import React from 'react'
-import ProductSearch from './productSearch'
-import GroupList from './group/groupList'
+import ProductSearch from '@/components/productSearch'
+import GroupList from '@/components/group/groupList'
 import { getGroup } from '@/app/store/group'
 
 export default async function Navbar() {

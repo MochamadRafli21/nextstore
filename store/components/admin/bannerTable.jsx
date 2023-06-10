@@ -1,5 +1,5 @@
 import React from 'react'
-import BannerDelete from '../banner/BannerDelete'
+import BannerDelete from '@/components/banner/BannerDelete'
 
 export default function BannerTable(props) {
   const banner = props.banners

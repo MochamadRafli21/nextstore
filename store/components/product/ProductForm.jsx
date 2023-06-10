@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation';
 import { postProduct } from '@/app/store/product';
 import formatter from '@/utils/formater';
-import SingleSelect from '../select/singleSelect';
+import SingleSelect from '@/components/select/singleSelect';
 
 export default function CategoryForm() {
   const router = useRouter()

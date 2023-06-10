@@ -1,4 +1,4 @@
-import {getCategory } from "../../store/category"
+import {getCategory } from "@/app/store/category"
 
 import CategoryTable from "@/components/admin/categoryTable";
 import Link from "next/link";

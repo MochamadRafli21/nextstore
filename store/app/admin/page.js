@@ -1,5 +1,5 @@
 
-import { getOrder } from "../store/order";
+import { getOrder } from "@/app/store/order";
 
 import Link from "next/link";
 import OrderTable from "@/components/admin/orderTable";

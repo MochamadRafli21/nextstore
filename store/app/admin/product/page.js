@@ -1,5 +1,5 @@
 
-import { getProductServer } from "../../store/product"
+import { getProductServer } from "@/app/store/product"
 
 import Link from "next/link";
 import ProductTable from "@/components/admin/productTable";

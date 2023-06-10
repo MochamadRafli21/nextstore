@@ -2,8 +2,8 @@ import Carousel from "@/components/carousel"
 import ProductList from "@/components/productList"
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
-import {getCategory } from "./store/category"
-import { getBanner } from "./store"
+import {getCategory } from "@/app/store/category"
+import { getBanner } from "@/app/store"
 import CategoryCard from "@/components/categoryCard"
 import ProductCard from "@/components/productCard"
 

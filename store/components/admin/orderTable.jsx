@@ -1,7 +1,7 @@
 import React from 'react'
 import formatter from '@/utils/formater';
 import Link from "next/link";
-import UpdateOrderStatus from '../order/UpdateOrderStatus';
+import UpdateOrderStatus from '@/components/order/UpdateOrderStatus';
 
 export default function OrderTable({orders}) {
   return (

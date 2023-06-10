@@ -1,5 +1,5 @@
 import React from 'react'
-import GroupDelete from '../group/GroupDelete'
+import GroupDelete from '@/components/group/GroupDelete'
 import Link from 'next/link'
 export default function GroupTable({groups}) {
   return (

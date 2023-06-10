@@ -1,6 +1,6 @@
 'use client'
 import React,{useState, useTransition} from 'react'
-import SingleSelect from '../select/singleSelect'
+import SingleSelect from '@/components/select/singleSelect'
 import { updateOrderStatus } from '@/app/store/order'
 import { useRouter } from 'next/navigation'
 function UpdateOrderStatus({orderId ,currentStatus}) {

@@ -1,7 +1,7 @@
 'use client'
 import React, {useState, useEffect} from 'react'
 import { useRouter } from 'next/navigation'
-import SingleSelect from '../select/singleSelect'
+import SingleSelect from '@/components/select/singleSelect'
 import { postOrder, updateOrder } from '@/app/store/order'
 
 export default function AddOrder({productId , prePayload, isEdit, isAdmin, phone}) {

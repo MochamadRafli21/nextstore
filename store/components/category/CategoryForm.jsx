@@ -2,8 +2,8 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
 import { postCategory, updateCategory } from '@/app/store/category';
-import MultySelect from '../select/multipleSelect';
-import SingleSelect from '../select/singleSelect';
+import MultySelect from '@/components/select/multipleSelect';
+import SingleSelect from '@/components/select/singleSelect';
 
 export default function CategoryForm({resP, data, isEdit }) {
   const router = useRouter()

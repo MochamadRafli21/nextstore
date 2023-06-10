@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
 import { postGroup, updateGroup } from '@/app/store/group';
-import MultySelect from '../select/multipleSelect';
+import MultySelect from '@/components/select/multipleSelect';
 export default function GroupForm({resC, data, isEdit}) {
   const router = useRouter()
   const [payload, setPayload] = useState(data? data : {})

@@ -1,6 +1,6 @@
 import MiniCategoryList from "@/components/miniCategoryList"
 import ProductList from "@/components/productList"
-import { getCategory } from "../../../../store/category/"
+import { getCategory } from "@/app/store/category/"
 
 export default async function Product({params}) {
   const categoryName = params ? decodeURI(params.productCategory) : ''
