@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function AdminMenu() {
+export default function AdminNavbar() {
   return (
     <>
     <div className='w-full bg-primary'>

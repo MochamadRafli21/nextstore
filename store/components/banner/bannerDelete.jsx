@@ -2,7 +2,7 @@
 import React from 'react'
 import { deleteBanner } from '@/app/store'
 import { useRouter } from 'next/navigation'
-export default function BannerPost(props) {
+export default function BannerDelete(props) {
   const id = props.id
   const router = useRouter()
   async function submitDelete(){
