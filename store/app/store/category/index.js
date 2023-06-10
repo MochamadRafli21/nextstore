@@ -1,6 +1,13 @@
-export async function getCategory() {
+export async function getCategory(query) {
+  let url = `${process.env.HOST}api/category`
+  if(query){
+    const {isHighlight}=query
+    if(isHighlight){
+      url += `?isHighlight=${isHighlight}`
+    }
+  }
   try{
-    const res = await fetch(`${process.env.HOST}api/category`,
+    const res = await fetch(url,
       {
         cache: 'no-store',
       }

@@ -7,7 +7,7 @@ export default function ProductCard(props) {
   return (
     <>
     <Link href={"/product/"+props.id} >
-    <div className="card card-compact overflow-hidden w-44 md:my-4 bg-base-100 shadow-xl">
+    <div className="card card-compact overflow-hidden w-44 md:my-4 bg-base-100 shadow">
       {
         props.image ? 
         <figure><img className='w-44 h-44 object-cover rounded-xl' src={props.image} alt={props.name} /></figure>

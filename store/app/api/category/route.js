@@ -2,8 +2,24 @@ import prisma from "@/prisma/prismaClient";
 import { NextResponse } from 'next/server';
 import { Prisma } from "@prisma/client";
 
-export async function GET() {
-  const category = await prisma.category.findMany() 
+export async function GET(request) {
+  const {searchParams} = new URL(request.url)
+  const isHighlight = searchParams.get('isHighlight')
+  let payload = {}
+  if(isHighlight){
+    payload = {
+      isHighlight: isHighlight === "true" ? true: false
+    }
+  }
+  const category = await prisma.category.findMany({
+    where:payload,
+    include:{
+      product:true
+    },
+    orderBy:{
+      id: 'desc'
+    }
+  }) 
   return NextResponse.json({ data: category });
 }
 
