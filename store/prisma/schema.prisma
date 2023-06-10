@@ -25,6 +25,7 @@ model Product {
 model Category {
   id    Int    @id @default(autoincrement())
   name  String @unique
+  isHighlight Boolean @default(false)
   image String?
   product Product[]
   group Group[]
@@ -46,6 +47,8 @@ model Order {
   id Int @id @default(autoincrement())
   uuid String
   name String
+  status Status @default(DRAFT)
+  payment_status PaymentStatus @default(UNPAID)
   address String
   phone String
   notes String?
@@ -55,4 +58,16 @@ model Order {
   productId Int
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+enum Status {
+  DRAFT
+  CONFIRM
+  SHIPPED
+  COMPLETED
+}
+
+enum PaymentStatus {
+  PAID
+  UNPAID
 }

@@ -31,6 +31,9 @@ export async function PUT(request, {params}) {
   if(!product){
     throw new Response(JSON.stringify({"message": "Product Is Missing"}),{status: 400})
   }
+  if(res.price < 0){
+    throw new Response(JSON.stringify({"message": "Price cant be negative"}), {status: 400})
+  }
   let data ={}
   if(res.product){
     data = {
